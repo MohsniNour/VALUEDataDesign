@@ -21,12 +21,7 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long idUser;
-
     public String userName;
-
     public String email;
-
     public String password;
-    @OneToMany
-    private Set<Project> projects;
 }
