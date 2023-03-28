@@ -1,0 +1,21 @@
+nav{
+    height: 100%;
+}
+.side-nav-button{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+mat-toolbar{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+    border: solid 2px #F5F7F8;
+}
+button {
+    border: 0;
+    background-color: transparent;
+}

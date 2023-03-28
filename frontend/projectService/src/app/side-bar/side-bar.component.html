@@ -1,0 +1,16 @@
+<mat-nav-list>
+    <div class="logo py-4">
+        <h1 class="logo-title">Data Design</h1>
+        <img src="../../assets/VALUELOGO.png" alt="Company Logo" class="logo-img">
+    </div>  
+    <div class="side-nav-content">
+        <ul class="nav-list" [ngClass]="{'nav-list-open': sideBarStatus}">
+            <li class="nav-list-item" *ngFor="let item of list">
+                    <a routerLink="/{{item.name}}" routerLinkActive="list-item-active" class="nav-link">
+                        <i class="{{item.icon}}" style="color: #181818;"></i>
+                        {{item.name}}
+                    </a>
+            </li>
+        </ul> 
+    </div>
+</mat-nav-list>
