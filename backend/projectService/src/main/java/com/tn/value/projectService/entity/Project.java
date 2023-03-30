@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 
@@ -26,9 +27,11 @@ public class Project implements Serializable{
 	
 	public String name;
 
+	@JsonIgnore
 	@ManyToOne
 	private User user;
-	
+
+	@JsonIgnore
 	@OneToMany
 	private Set<Model> models;
 	

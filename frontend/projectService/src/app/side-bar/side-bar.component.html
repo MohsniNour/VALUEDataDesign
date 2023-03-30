@@ -3,14 +3,76 @@
         <h1 class="logo-title">Data Design</h1>
         <img src="../../assets/VALUELOGO.png" alt="Company Logo" class="logo-img">
     </div>  
-    <div class="side-nav-content">
+     <div class="side-nav-content">
         <ul class="nav-list" [ngClass]="{'nav-list-open': sideBarStatus}">
-            <li class="nav-list-item" *ngFor="let item of list">
-                    <a routerLink="/{{item.name}}" routerLinkActive="list-item-active" class="nav-link">
-                        <i class="{{item.icon}}" style="color: #181818;"></i>
-                        {{item.name}}
+            <li class="nav-list-item">
+                    <a routerLink="/Home" routerLinkActive="list-item-active" class="nav-link">
+                        <i class="fa-solid fa-house" style="color: #181818; margin-left: 35px;"></i>
+                        Home
+                    </a>
+                    <ng-container *ngFor="let menu of menuList" >
+                        <ng-container [ngTemplateOutlet]="menu.children ? childMenu : parentMenu"[ngTemplateOutletContext]="{menu:menu}">
+                        </ng-container>
+                    </ng-container>
+                     <a routerLink="/Tags" routerLinkActive="list-item-active" class="nav-link">
+                        <i class="fa-solid fa-tag" style="color: #181818; margin-left: 35px;"></i>
+                        Tags
+                        <i class="fas fa-angle-right dropdown" style="color: #181818;"></i>
+                    </a>
+            </li>
+        </ul>
+     </div>
+                    <!--
+                    <a routerLinkActive="list-item-active" class="nav-link project-sub-menu">
+                        <i class="fa-solid fa-folder" style="color: #181818;margin-left: 35px;"></i>
+                        Projects
+                        <i class="fas fa-angle-right dropdown" style="color: #181818;"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <div *ngFor="let project of projects">
+                            <a routerLink="/projects/{{project.idProject}}" class="nav-link">
+                                {{project.name}}
+                            </a>
+                        </div>
+                    </div>
+                    <a routerLink="/Tags" routerLinkActive="list-item-active" class="nav-link">
+                        <i class="fa-solid fa-tag" style="color: #181818; margin-left: 35px;"></i>
+                        Tags
+                        <i class="fas fa-angle-right dropdown" style="color: #181818;"></i>
                     </a>
             </li>
         </ul> 
-    </div>
-</mat-nav-list>
+    </div> -->
+        
+    </mat-nav-list>
+    <ng-template #parentMenu let-menu="menu">
+        <mat-list-item [routerLink]="menu.routerLink" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" *ngFor="let project of projects">
+            <!-- <mat-icon>{{menu.icon}}</mat-icon>  -->
+            Projects
+        </mat-list-item>
+    </ng-template>
+
+<ng-template #childMenu let-menu="menu" routerLinkActive="list-item-active" class="nav-link nav-list">
+    <mat-expansion-panel [class.mat-elevation-z0]="true" >
+        <mat-expansion-panel-header  (click)="showProject()" >
+            <i class="fa-solid fa-folder" style="color: #181818;"></i>
+            <!-- <mat-icon mat-list-icon>{{menu.icon}}</mat-icon> -->
+            Projects
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <mat-list-item [routerLink]="submenu.routerLink" *ngFor="let submenu of menu.children" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
+                <!-- <mat-icon>{{submenu.icon}}</mat-icon>  -->
+                <!-- {{submenu.name}}  -->
+                hhhhh
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-expansion-panel>
+</ng-template>
+
+ <script type="text/javascript">
+ $(document).ready(function(){
+    $('.project-sub-menu').click(function(){
+        $(this).next('.sub-menu').slideToggle(); 
+    });
+});
+</script>

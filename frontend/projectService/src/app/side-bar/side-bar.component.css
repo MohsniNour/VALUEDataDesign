@@ -6,16 +6,21 @@
     color: #181818;
     width: 100%;
     margin-top: 40px;
+    /* margin-left: 15px; */
 }
 .nav-list {
     list-style: none;
     height: 100%;
     padding: 0%;
     margin-bottom: 0%;
+
 }
 .nav-list-item {
     height: 50px;
 }
+/* .nav-list-item a {
+    margin-left: 15px;
+} */
 
 .nav-list-item:hover {
     background-color:rgba(255, 136, 37, .5);
@@ -29,6 +34,9 @@
     align-items: center;
     width: 100%;
     height: 100%;
+}
+.nav-icon{
+    margin-left: 50px;
 }
 .nav-list-item i {
     font-size: 20px;
@@ -65,4 +73,35 @@ a{
 }
 h1{
     color: #181818;
+}
+/* .dropdown{
+    position:absolute;
+    right: 0;
+    margin: 20px;
+    transition: 0.3s ease;
+
+} */
+.sub-menu{
+    display: grid;
+    row-gap: .5rem;
+    padding: .75rem 2.5rem .75rem 1.8rem;
+}
+.sub-menu-item{
+    font-size: small;
+    font-weight:normal ;
+    color :rgba(255, 136, 37, .5)
+}
+.sub-menu a{
+    padding-left: 80px;
+    margin-bottom: 5px;
+}
+.nav-list-item a i.dropdown{
+    position:absolute;
+    right: 0;
+    margin: 20px;
+    transition: 0.3s ease;
+
+}
+ng-template{
+    background-color:#F5F7F8;
 }

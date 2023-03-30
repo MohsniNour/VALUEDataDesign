@@ -19,3 +19,6 @@ button {
     border: 0;
     background-color: transparent;
 }
+.navbar-title{
+    text-decoration:line-through ;
+}

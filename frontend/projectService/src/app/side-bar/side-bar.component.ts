@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Project } from '../model/project/project';
+import { ProjectService } from '../service/project/project.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -8,26 +11,34 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SideBarComponent implements OnInit {
 
   @Input() sideBarStatus : Boolean = false;
-  list = [
-    {
-      number : '1',
-      name:'Home',
-      icon : 'fa-solid fa-house'
-    },
-    {
-      number : '2',
-      name:'Projects',
-      icon : 'fa-solid fa-folder',
-    },
-    {
-      number : '3',
-      name:'Tags',
-      icon : 'fa-solid fa-tag'
-    }
-  ]
-  constructor() { }
+  projects !: Project [];
+  menuList:any = [];
+  
+
+  constructor(private projectService : ProjectService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getProjects();
+    
   }
+
+  private getProjects(){
+    this.menuList = [{text:"Projects",children:[{}]}];
+
+    this.projectService.getProjectList().subscribe(data =>{
+      this.projects = data;
+      data.forEach(elem => {
+        console.log(elem);
+        this.menuList.children.push(elem)});
+    //  this.menuList.children = data;
+      console.log(this.menuList)
+    });
+  }
+
+  showProject(){
+    console.log("list project shown *******")
+    this.router.navigateByUrl('/Projects')
+  }
+  
 
 }
