@@ -32,8 +32,6 @@ public class Model implements Serializable{
 	public Long idModel;
 	
 	public String nameModel;
-
-	public String status;
 	
 	@ManyToOne
 	private Project project;

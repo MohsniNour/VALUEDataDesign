@@ -17,7 +17,7 @@ public class ProjectRestController {
     // http://localhost:8089/VALUE/project/getAll
     @GetMapping("")
     @ResponseBody
-    public List<Project> getUsers() { return projectService.getAll(); }
+    public List<Project> getAll() { return projectService.getAll(); }
 
     // http://localhost:8089/VALUE/project/getById/1
     @GetMapping("/getById/{id}")
