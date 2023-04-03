@@ -18,7 +18,9 @@ public class ModelRestController {
     // http://localhost:8089/VALUE/models/getAll
     @GetMapping("")
     @ResponseBody
-    public List<Model> getAll() { return modelService.getAll(); }
+    public List<Model> getAllById(@PathVariable("id") Long id) {
+        return modelService.getAllById(id);
+    }
 
     // http://localhost:8089/VALUE/models/getById/1
     @GetMapping("/getById/{id}")

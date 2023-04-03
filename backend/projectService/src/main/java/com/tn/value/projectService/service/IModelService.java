@@ -6,7 +6,7 @@ import com.tn.value.projectService.entity.Model;
 import java.util.List;
 
 public interface IModelService {
-    List<Model> getAll();
+    List<Model> getAllById(Long id);
 
     Model add(Model m);
 

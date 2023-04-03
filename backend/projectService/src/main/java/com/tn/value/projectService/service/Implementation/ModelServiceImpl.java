@@ -14,7 +14,7 @@ public class ModelServiceImpl implements IModelService {
     @Autowired
     ModelRepository modelRepository;
     @Override
-    public List<Model> getAll() {
+    public List<Model> getAllById(Long id) {
         return  modelRepository.findAll();
     }
 
