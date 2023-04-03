@@ -1,10 +1,10 @@
 <div class="container-fluid page">
     <div class="page__box">
-        <div class="page__box-title">Recent projects</div>
+        <div class="page__box-title">Project </div>
         <div class="page__box-search">
             <form class="example-form">
                 <mat-form-field class="example-full-width">
-                  <mat-label>Project name</mat-label>
+                  <mat-label>Model name</mat-label>
                   <input matInput placeholder="" value="">
                 </mat-form-field>
               </form>
@@ -17,7 +17,7 @@
     </div>
     <div class="page__content shadow p-3 position-relative">
         <div class="page__content-data">
-            <mat-card class="card__box" *ngFor="let project of projects">
+            <!-- <mat-card class="card__box" *ngFor="let project of projects">
                 <mat-card-header>
                   <mat-card-title>{{ project.name }}</mat-card-title>
                 </mat-card-header>
@@ -25,9 +25,7 @@
                   <button mat-button class="show-button"><a href="/Projects/{{ project.idProject}}"><i class="fa-solid fa-eye" style="color: #181818;"></i></a></button>
                   <button mat-button class="delete-button"><i class="fa-solid fa-trash" style="color: #181818;"></i></button>
                 </mat-card-actions>
-              </mat-card>
+              </mat-card> -->
         </div>
     </div>
 </div>
-
-    

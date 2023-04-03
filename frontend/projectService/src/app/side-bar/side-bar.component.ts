@@ -23,8 +23,7 @@ export class SideBarComponent implements OnInit {
   }
 
   private getProjects(){
-    this.menuList = [{text:"Projects",children:[{}]}];
-
+    this.menuList = [{text:"Projects",children:[]}];
     this.projectService.getProjectList().subscribe(data =>{
       this.projects = data;
       data.forEach(elem => {
@@ -32,11 +31,13 @@ export class SideBarComponent implements OnInit {
         this.menuList.children.push(elem)});
     //  this.menuList.children = data;
       console.log(this.menuList)
+      console.log(this.projects)
     });
   }
 
   showProject(){
     console.log("list project shown *******")
+    console.log(this.projects)
     this.router.navigateByUrl('/Projects')
   }
   

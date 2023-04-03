@@ -18,6 +18,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { HomeComponent } from './home/home.component';
 import { GetProjectsComponent } from './Projects/get-projects/get-projects.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GetProjectComponent } from './Projects/get-project/get-project.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     SideBarComponent,
     HomeComponent,
-    GetProjectsComponent
+    GetProjectsComponent,
+    GetProjectComponent
   ],
   imports: [
     BrowserModule,

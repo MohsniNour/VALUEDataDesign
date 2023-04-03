@@ -105,3 +105,7 @@ h1{
 ng-template{
     background-color:#F5F7F8;
 }
+mat-expansion-panel{
+    border: solid red;
+    border-radius: unset;
+}

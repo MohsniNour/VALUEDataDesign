@@ -17,7 +17,6 @@
                      <a routerLink="/Tags" routerLinkActive="list-item-active" class="nav-link">
                         <i class="fa-solid fa-tag" style="color: #181818; margin-left: 35px;"></i>
                         Tags
-                        <i class="fas fa-angle-right dropdown" style="color: #181818;"></i>
                     </a>
             </li>
         </ul>
@@ -43,36 +42,25 @@
             </li>
         </ul> 
     </div> -->
-        
-    </mat-nav-list>
-    <ng-template #parentMenu let-menu="menu">
-        <mat-list-item [routerLink]="menu.routerLink" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" *ngFor="let project of projects">
-            <!-- <mat-icon>{{menu.icon}}</mat-icon>  -->
-            Projects
-        </mat-list-item>
-    </ng-template>
+</mat-nav-list>
+<ng-template #parentMenu let-menu="menu" >
+    <mat-list-item [routerLink]="menu.routerLink" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" *ngFor="let project of projects">
+        Projects
+    </mat-list-item>
+</ng-template>
 
-<ng-template #childMenu let-menu="menu" routerLinkActive="list-item-active" class="nav-link nav-list">
-    <mat-expansion-panel [class.mat-elevation-z0]="true" >
-        <mat-expansion-panel-header  (click)="showProject()" >
+<ng-template #childMenu let-menu="menu" routerLinkActive="list-item-active" class="nav-link nav-list" >
+    <mat-expansion-panel [class.mat-elevation-z0]="true" style="background-color: #F5F7F8; ">
+        <mat-expansion-panel-header  (click)="showProject()">
             <i class="fa-solid fa-folder" style="color: #181818;"></i>
-            <!-- <mat-icon mat-list-icon>{{menu.icon}}</mat-icon> -->
             Projects
         </mat-expansion-panel-header>
         <mat-nav-list>
-            <mat-list-item [routerLink]="submenu.routerLink" *ngFor="let submenu of menu.children" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
-                <!-- <mat-icon>{{submenu.icon}}</mat-icon>  -->
-                <!-- {{submenu.name}}  -->
-                hhhhh
+            <mat-list-item routerLink="/Projects/{{submenu.idProject}}" *ngFor="let submenu of projects" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
+                {{submenu.name}} 
+                <!-- {{submenu.idProject}}  -->
             </mat-list-item>
         </mat-nav-list>
     </mat-expansion-panel>
 </ng-template>
 
- <script type="text/javascript">
- $(document).ready(function(){
-    $('.project-sub-menu').click(function(){
-        $(this).next('.sub-menu').slideToggle(); 
-    });
-});
-</script>
