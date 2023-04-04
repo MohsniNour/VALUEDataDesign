@@ -1,7 +1,9 @@
 package com.tn.value.projectService.controller;
 
 import com.tn.value.projectService.entity.Model;
+import com.tn.value.projectService.entity.Project;
 import com.tn.value.projectService.service.IModelService;
+import com.tn.value.projectService.service.IProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,8 @@ public class ModelRestController {
 
     @Autowired
     IModelService modelService;
+    @Autowired
+    IProjectService projectService;
 
     // http://localhost:8089/VALUE/models
     @GetMapping("")
@@ -37,9 +41,11 @@ public class ModelRestController {
     }
 
     // http://localhost:8089/VALUE/models/add
-    @PostMapping("/add")
+    @PostMapping("/add/{id}")
     @ResponseBody
-    public Model add(@RequestBody Model m) {
+    public Model add(@PathVariable("id") Long id,@RequestBody Model m) {
+        Project project = projectService.getById(id);
+        m.setProject(project);
         return modelService.add(m);
     }
 
