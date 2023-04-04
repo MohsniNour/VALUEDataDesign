@@ -22,5 +22,9 @@ export class GetProjectsComponent implements OnInit {
       this.projects = data;
     });
   }
+  deleteProject(id:number){
+    this.projectService.deleteProject(id).subscribe();
+    location.reload();
+  }
   
 }
