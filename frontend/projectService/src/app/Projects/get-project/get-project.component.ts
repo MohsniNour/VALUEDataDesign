@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Model } from 'src/app/model/model/model';
+import { Project } from 'src/app/model/project/project';
 import { ModelService } from 'src/app/service/model/model.service';
+import { ProjectService } from 'src/app/service/project/project.service';
 
 @Component({
   selector: 'app-get-project',
@@ -11,12 +13,23 @@ import { ModelService } from 'src/app/service/model/model.service';
 export class GetProjectComponent implements OnInit {
   
   id !: number;
+  project : Project = new Project();
   models !: Model [];
 
-  constructor(private modelService : ModelService, private route: ActivatedRoute) { }
+  constructor(private modelService : ModelService, private projectService: ProjectService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getProjectById();
     this.getModelsByIdProject();
+  }
+
+  private getProjectById(){
+    this.id = this.route.snapshot.params['id'];
+    this.projectService.getProjectById(this.id).subscribe( data =>{
+      this.project=data;
+      console.log(this.project);
+    });
+    
   }
 
   private getModelsByIdProject(){
@@ -26,6 +39,7 @@ export class GetProjectComponent implements OnInit {
       this.models = data;
     });
   }
+  
 
   
 

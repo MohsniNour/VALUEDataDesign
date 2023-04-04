@@ -16,6 +16,10 @@ export class ProjectService {
     return this.httpClient.get<Project[]>(`${this.baseURL}`);
   }
 
+  getProjectById(id:number): Observable<Project>{
+    return this.httpClient.get<Project>(`${this.baseURL}/getById/${id}`);
+  }
+
   deleteProject(id:number): Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/delete/${id}`);
   }
