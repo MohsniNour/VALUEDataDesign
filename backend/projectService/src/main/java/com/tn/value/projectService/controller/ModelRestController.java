@@ -15,11 +15,18 @@ public class ModelRestController {
     @Autowired
     IModelService modelService;
 
-    // http://localhost:8089/VALUE/models/getAll
+    // http://localhost:8089/VALUE/models
     @GetMapping("")
     @ResponseBody
-    public List<Model> getAllById(@PathVariable("id") Long id) {
-        return modelService.getAllById(id);
+    public List<Model> getAll() {
+        return modelService.getAll();
+    }
+
+    // http://localhost:8089/VALUE/models/1
+    @GetMapping("/{idProject}")
+    @ResponseBody
+    public List<Model> getAllByIdProject(@PathVariable("idProject") Long idProject) {
+        return modelService.getAllByIdProject(idProject);
     }
 
     // http://localhost:8089/VALUE/models/getById/1
