@@ -26,12 +26,7 @@ export class SideBarComponent implements OnInit {
     this.menuList = [{text:"Projects",children:[]}];
     this.projectService.getProjectList().subscribe(data =>{
       this.projects = data;
-      data.forEach(elem => {
-        console.log(elem);
-        this.menuList.children.push(elem)});
-    //  this.menuList.children = data;
-      console.log(this.menuList)
-      console.log(this.projects)
+      
     });
   }
 

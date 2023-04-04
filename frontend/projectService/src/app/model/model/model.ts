@@ -1,4 +1,7 @@
+import { Project } from "../project/project";
+
 export class Model {
     idModel!: number;
-    name !: string;
+    nameModel !: string;
+    project !: Project;
 }

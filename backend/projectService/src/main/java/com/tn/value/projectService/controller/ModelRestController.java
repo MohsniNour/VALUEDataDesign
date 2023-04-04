@@ -23,9 +23,9 @@ public class ModelRestController {
     }
 
     // http://localhost:8089/VALUE/models/1
-    @GetMapping("/{idProject}")
+    @GetMapping("/{id}")
     @ResponseBody
-    public List<Model> getAllByIdProject(@PathVariable("idProject") Long idProject) {
+    public List<Model> getAllByIdProject(@PathVariable("id") Long idProject) {
         return modelService.getAllByIdProject(idProject);
     }
 
