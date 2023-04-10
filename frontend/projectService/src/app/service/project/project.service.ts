@@ -20,6 +20,10 @@ export class ProjectService {
     return this.httpClient.get<Project>(`${this.baseURL}/getById/${id}`);
   }
 
+  addProject(project:Project): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/add`,project);
+  }
+
   deleteProject(id:number): Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/delete/${id}`);
   }

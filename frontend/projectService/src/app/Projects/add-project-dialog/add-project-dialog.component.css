@@ -10,6 +10,7 @@
     border-color: rgba(255, 136, 37);
 }
 .dialogContent{
+    height: 100%;
     margin-left: 50px;
     margin-top: 40px;
     display: flex;
@@ -19,8 +20,7 @@
     width: 350px !important;
 }
 .action-box{
-    margin-right: 15px;
-    margin-top: 30px;
+    margin-top: 60px;
     display: flex;
     justify-content: right;
 }
