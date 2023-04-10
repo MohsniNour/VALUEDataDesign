@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,13 +29,15 @@ public class Tab implements Serializable{
 	
 	public String name;
 	public String description;
-	public String status;
 	@ManyToOne
 	private Model model;
+	@JsonIgnore
 	@OneToMany
 	private Set<TabAttribute> attributes;
+	@JsonIgnore
 	@OneToMany
 	private Set<Association> joins;
+	@JsonIgnore
 	@OneToOne
 	private Position position;
 	

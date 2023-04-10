@@ -24,7 +24,6 @@ public class Value implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long idValue;
     public String name;
-    public String status;
     @ManyToOne
     private Tag tag;
 }

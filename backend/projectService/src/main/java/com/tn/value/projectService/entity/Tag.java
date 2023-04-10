@@ -23,7 +23,6 @@ public class Tag implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long idTag;
     public String name;
-    public String status;
     @OneToMany
     private Set<Value> values;
 

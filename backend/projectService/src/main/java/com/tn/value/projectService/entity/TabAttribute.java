@@ -34,7 +34,6 @@ public class TabAttribute implements Serializable{
 	public Boolean distributionKey;
 	public Boolean PKey;
 	public Boolean FKey;
-	public String status;
 	@ManyToOne
 	private Tab tab;
 	@ManyToMany
