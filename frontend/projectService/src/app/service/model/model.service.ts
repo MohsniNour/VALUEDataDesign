@@ -15,6 +15,10 @@ export class ModelService {
     return this.httpClient.get<Model[]>(`${this.baseURL}/${id}`);
   }
 
+  getModelById(id:number): Observable<Model>{
+    return this.httpClient.get<Model>(`${this.baseURL}/getById/${id}`);
+  }
+
   deleteModel(id:number): Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/delete/${id}`);
   }

@@ -1,31 +1,33 @@
 <div class="container-fluid page">
     <div class="page__box">
-        <div class="page__box-title">{{project.name}} </div>
+        <div class="page__box-title"> {{model.project.name}} / {{ model.nameModel }} </div>
         <div class="page__box-search">
             <form class="example-form">
                 <mat-form-field class="example-full-width">
-                  <mat-label>Model name</mat-label>
+                  <mat-label>Table name</mat-label>
                   <input matInput placeholder="" value="">
                 </mat-form-field>
               </form>
         </div>
     </div>
     <div class="page__box-add">
-        <button mat-raised-button class="add-button" (click)="openDialog()"> New 
+        <button mat-raised-button class="add-button"> New 
             <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
         </button>
     </div>
     <div class="page__content shadow p-3 position-relative">
         <div class="page__content-data">
-            <mat-card class="card__box" *ngFor="let model of models">
-                <mat-card-header>
+            <div class="example-box" cdkDragBoundary=".page__content-data" *ngFor="let tab of tabs" cdkDrag>
+               {{tab.name}} / {{tab.description}} 
+               <mat-divider></mat-divider>
+            </div>
+                <!-- <mat-card-header>
                   <mat-card-title>{{ model.nameModel }}</mat-card-title>
                 </mat-card-header>
                 <mat-card-actions class="action-box">
                   <button mat-button class="show-button"><a href="/Projects/{{ model.project.idProject}}/model/{{model.idModel}}"><i class="fa-solid fa-eye" style="color: #181818;"></i></a></button>
                   <button mat-button class="delete-button" (click)="deleteModel(model.idModel)"><i class="fa-solid fa-trash" style="color: #181818;"></i></button>
-                </mat-card-actions>
-              </mat-card>
+                </mat-card-actions> -->
         </div>
     </div>
 </div>

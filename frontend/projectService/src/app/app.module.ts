@@ -15,7 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDialogModule } from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HomeComponent } from './home/home.component';
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetProjectComponent } from './Projects/get-project/get-project.component';
 import { AddProjectDialogComponent } from './Projects/add-project-dialog/add-project-dialog.component';
 import { AddModelDialogComponent } from './models/add-model-dialog/add-model-dialog.component';
+import { GetModelComponent } from './models/get-model/get-model.component';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { AddModelDialogComponent } from './models/add-model-dialog/add-model-dia
     GetProjectsComponent,
     GetProjectComponent,
     AddProjectDialogComponent,
-    AddModelDialogComponent
+    AddModelDialogComponent,
+    GetModelComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { AddModelDialogComponent } from './models/add-model-dialog/add-model-dia
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatDialogModule, 
+    MatDialogModule,
+    DragDropModule, 
     HttpClientModule
   ],
   providers: [],
