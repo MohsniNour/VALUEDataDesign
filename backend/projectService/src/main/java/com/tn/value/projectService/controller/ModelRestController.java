@@ -60,6 +60,8 @@ public class ModelRestController {
     @PutMapping("/update/{id}")
     @ResponseBody
     public Model update(@RequestBody Model model,@PathVariable("id") Long id) {
+        Model m = modelService.getById(id);
+        model.setProject(m.getProject());
         model.setIdModel(id);
         return modelService.update(model);
     }
