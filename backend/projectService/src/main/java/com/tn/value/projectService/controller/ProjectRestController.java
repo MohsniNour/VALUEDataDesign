@@ -1,7 +1,9 @@
 package com.tn.value.projectService.controller;
 
 import com.tn.value.projectService.entity.Project;
+import com.tn.value.projectService.entity.User;
 import com.tn.value.projectService.service.IProjectService;
+import com.tn.value.projectService.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +15,9 @@ public class ProjectRestController {
 
     @Autowired
     IProjectService projectService;
+
+    @Autowired
+    IUserService userService;
 
     // http://localhost:8089/VALUE/project/getAll
     @GetMapping("")
@@ -30,6 +35,8 @@ public class ProjectRestController {
     @PostMapping("/add")
     @ResponseBody
     public Project add(@RequestBody Project p) {
+        User u = userService.getById(1L);
+        p.setUser(u);
         return projectService.add(p);
     }
 
