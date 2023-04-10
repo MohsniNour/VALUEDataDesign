@@ -4,6 +4,8 @@ import { Model } from 'src/app/model/model/model';
 import { Project } from 'src/app/model/project/project';
 import { ModelService } from 'src/app/service/model/model.service';
 import { ProjectService } from 'src/app/service/project/project.service';
+import { AddModelDialogComponent } from 'src/app/models/add-model-dialog/add-model-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-get-project',
@@ -16,7 +18,7 @@ export class GetProjectComponent implements OnInit {
   project : Project = new Project();
   models !: Model [];
 
-  constructor(private modelService : ModelService, private projectService: ProjectService, private route: ActivatedRoute) { }
+  constructor(private modelService : ModelService, private projectService: ProjectService, private route: ActivatedRoute,private matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getProjectById();
@@ -38,6 +40,18 @@ export class GetProjectComponent implements OnInit {
     this.modelService.getModelListByIdProject(this.id).subscribe(data =>{
       this.models = data;
     });
+  }
+
+  deleteModel(id:number){
+    this.modelService.deleteModel(id).subscribe();
+    location.reload();
+  }
+
+  openDialog(){
+    this.matDialog.open(AddModelDialogComponent,{
+      width:'700px', 
+      height:'280px',
+    })
   }
   
 

@@ -12,6 +12,10 @@ export class ModelService {
   constructor(private httpClient : HttpClient) { }
 
   getModelListByIdProject(id:any): Observable<Model[]>{
-    return this.httpClient.get<Model[]>(`${this.baseURL}/`+id);
+    return this.httpClient.get<Model[]>(`${this.baseURL}/${id}`);
+  }
+
+  deleteModel(id:number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/delete/${id}`);
   }
 }

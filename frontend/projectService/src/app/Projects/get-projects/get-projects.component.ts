@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/app/service/project/project.service';
 import { Project} from '../../model/project/project';
+import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-get-projects',
   templateUrl: './get-projects.component.html',
@@ -10,8 +12,9 @@ export class GetProjectsComponent implements OnInit {
   
   searchValue: string = '';
   projects !: Project [];
+  
 
-  constructor(private projectService : ProjectService) { }
+  constructor(private projectService : ProjectService, private matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getProjects();
@@ -26,5 +29,14 @@ export class GetProjectsComponent implements OnInit {
     this.projectService.deleteProject(id).subscribe();
     location.reload();
   }
+
+  openDialog(){
+    this.matDialog.open(AddProjectDialogComponent,{
+      width:'700px', 
+      height:'280px',
+    })
+  }
+
+ 
   
 }

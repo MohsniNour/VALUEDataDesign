@@ -11,9 +11,11 @@
         </div>
     </div>
     <div class="page__box-add">
-        <button mat-raised-button class="add-button"> New 
+      <mat-dialog-actions>
+        <button mat-raised-button class="add-button" (click)="openDialog()"> New 
             <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
         </button>
+      </mat-dialog-actions>
     </div>
     <div class="page__content shadow p-3 position-relative">
         <div class="page__content-data">
