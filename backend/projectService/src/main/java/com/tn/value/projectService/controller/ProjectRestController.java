@@ -51,8 +51,9 @@ public class ProjectRestController {
     @PutMapping("/update/{id}")
     @ResponseBody
     public Project update(@RequestBody Project project,@PathVariable("id") Long id) {
-        project.setIdProject(id);
-        return projectService.update(project);
+        Project p = projectService.getById(id);
+        p.setName(project.name);
+        return projectService.update(p);
     }
 
 }

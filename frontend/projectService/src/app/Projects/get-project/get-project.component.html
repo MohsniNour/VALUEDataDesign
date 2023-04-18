@@ -1,6 +1,9 @@
 <div class="container-fluid page">
     <div class="page__box">
-        <div class="page__box-title">{{project.name}} </div>
+        <div class="page__box-title">
+          {{project.name}} 
+          <button mat-button class="update-button" (click)="openUpdateDialog()"><i class="fa-solid fa-pen" style="color: #181818;"></i></button>
+        </div>
         <div class="page__box-search">
             <form class="example-form">
                 <mat-form-field class="example-full-width">
@@ -11,7 +14,7 @@
         </div>
     </div>
     <div class="page__box-add">
-        <button mat-raised-button class="add-button" (click)="openDialog()"> New 
+        <button mat-raised-button class="add-button" (click)="openAddDialog()"> New 
             <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
         </button>
     </div>

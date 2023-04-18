@@ -19,6 +19,14 @@ export class ModelService {
     return this.httpClient.get<Model>(`${this.baseURL}/getById/${id}`);
   }
 
+  addModel(model:Model,id:number): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/add/${id}`,model);
+  }
+
+  updateModel(model:Model): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/update/${model.idModel}`,model);
+  }
+
   deleteModel(id:number): Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/delete/${id}`);
   }

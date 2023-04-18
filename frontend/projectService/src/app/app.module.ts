@@ -27,6 +27,8 @@ import { GetProjectComponent } from './Projects/get-project/get-project.componen
 import { AddProjectDialogComponent } from './Projects/add-project-dialog/add-project-dialog.component';
 import { AddModelDialogComponent } from './models/add-model-dialog/add-model-dialog.component';
 import { GetModelComponent } from './models/get-model/get-model.component';
+import { UpdateProjectDialogComponent } from './Projects/update-project-dialog/update-project-dialog.component';
+import { UpdateModelDialogComponent } from './models/update-model-dialog/update-model-dialog.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { GetModelComponent } from './models/get-model/get-model.component';
     GetProjectComponent,
     AddProjectDialogComponent,
     AddModelDialogComponent,
-    GetModelComponent
+    GetModelComponent,
+    UpdateProjectDialogComponent,
+    UpdateModelDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,10 @@
 <div class="container-fluid page">
     <div class="page__box">
-        <div class="page__box-title"> {{model.project.name}} / {{ model.nameModel }} </div>
+        <div class="page__box-title"> 
+          {{model.project.name}} / 
+          {{ model.nameModel }} 
+          <button mat-button class="update-button" (click)="openUpdateDialog()"><i class="fa-solid fa-pen" style="color: #181818;"></i></button>
+        </div>
         <div class="page__box-search">
             <form class="example-form">
                 <mat-form-field class="example-full-width">
@@ -21,13 +25,6 @@
                {{tab.name}} / {{tab.description}} 
                <mat-divider></mat-divider>
             </div>
-                <!-- <mat-card-header>
-                  <mat-card-title>{{ model.nameModel }}</mat-card-title>
-                </mat-card-header>
-                <mat-card-actions class="action-box">
-                  <button mat-button class="show-button"><a href="/Projects/{{ model.project.idProject}}/model/{{model.idModel}}"><i class="fa-solid fa-eye" style="color: #181818;"></i></a></button>
-                  <button mat-button class="delete-button" (click)="deleteModel(model.idModel)"><i class="fa-solid fa-trash" style="color: #181818;"></i></button>
-                </mat-card-actions> -->
         </div>
     </div>
 </div>

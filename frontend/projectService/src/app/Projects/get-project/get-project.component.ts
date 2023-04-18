@@ -6,6 +6,7 @@ import { ModelService } from 'src/app/service/model/model.service';
 import { ProjectService } from 'src/app/service/project/project.service';
 import { AddModelDialogComponent } from 'src/app/models/add-model-dialog/add-model-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { UpdateProjectDialogComponent } from '../update-project-dialog/update-project-dialog.component';
 
 @Component({
   selector: 'app-get-project',
@@ -43,17 +44,30 @@ export class GetProjectComponent implements OnInit {
   }
 
   deleteModel(id:number){
+    if(confirm('Are you sure to delete this model ?'))
     this.modelService.deleteModel(id).subscribe();
     location.reload();
   }
 
-  openDialog(){
+  openAddDialog(){
     this.matDialog.open(AddModelDialogComponent,{
       width:'700px', 
       height:'280px',
+      data:{
+        id:this.id
+      }
     })
   }
   
+  openUpdateDialog(){
+    this.matDialog.open(UpdateProjectDialogComponent,{
+      width:'700px', 
+      height:'280px',
+      data:{
+        project:this.project
+      }
+    })
+  }
 
   
 

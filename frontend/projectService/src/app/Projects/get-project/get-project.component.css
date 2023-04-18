@@ -3,12 +3,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: solid red; */
 }
 .page__box-title{
-    /* text-transform: uppercase; */
     font-weight:550;
     color: #181818;
+    width : 350px;
 }
 .page__box-add{
     display: flex;
@@ -30,6 +29,9 @@
     border-radius: 5px;
     background-color: rgba(255, 136, 37, .5);
     border-color: rgba(255, 136, 37);
+}
+.update-button{
+    margin-left: 180px;
 }
 .action-box{
     display: flex;

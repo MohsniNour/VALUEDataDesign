@@ -1,0 +1,20 @@
+<button mat-icon-button style="float:right;" matDialogClose>
+    <mat-icon>close</mat-icon>
+</button>
+<mat-dialog-content>
+    <header><h1>Update Project</h1></header>
+    <form (ngSubmit)="onSubmit()">
+        <div class="dialogContent">
+            <h2 class="mr-5"> Name  </h2>
+            <mat-form-field class="input">
+                <input matInput class="input" placeholder="Enter project name" id="name" [(ngModel)]="project.name" name="name" required>
+            </mat-form-field>
+        </div>
+            <div class="action-box">
+                <button mat-button class="submit-button" type="submit"> Update</button>
+                <button mat-button class="cancel-button" matDialogClose> Cancel</button>
+            </div>
+
+    </form>
+
+</mat-dialog-content>

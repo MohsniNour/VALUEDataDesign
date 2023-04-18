@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Model } from 'src/app/model/model/model';
 import { Project } from 'src/app/model/project/project';
 import { Tab } from 'src/app/model/tab/tab';
 import { ModelService } from 'src/app/service/model/model.service';
 import { TabService } from 'src/app/service/tab/tab.service';
+import { UpdateModelDialogComponent } from '../update-model-dialog/update-model-dialog.component';
 
 @Component({
   selector: 'app-get-model',
@@ -18,7 +20,7 @@ export class GetModelComponent implements OnInit {
   project : Project = new Project();
   model : Model = new Model();
   tabs !: Tab [];
-  constructor(private modelService : ModelService, private tabService: TabService, private route: ActivatedRoute) { }
+  constructor(private modelService : ModelService, private tabService: TabService, private route: ActivatedRoute, private matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getModelById();
@@ -40,6 +42,16 @@ export class GetModelComponent implements OnInit {
     this.tabService.getTabListByIdModel(this.id).subscribe(data =>{
       this.tabs = data;
     });
+  }
+
+  openUpdateDialog(){
+    this.matDialog.open(UpdateModelDialogComponent,{
+      width:'700px', 
+      height:'280px',
+      data:{
+        model:this.model
+      }
+    })
   }
 
 }

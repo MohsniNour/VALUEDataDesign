@@ -26,6 +26,7 @@ export class GetProjectsComponent implements OnInit {
     });
   }
   deleteProject(id:number){
+    if(confirm('Are you sure to delete this project ?'))
     this.projectService.deleteProject(id).subscribe();
     location.reload();
   }
@@ -34,7 +35,8 @@ export class GetProjectsComponent implements OnInit {
     this.matDialog.open(AddProjectDialogComponent,{
       width:'700px', 
       height:'280px',
-    })
+      panelClass: ['animate__animated'],
+    });
   }
 
  
