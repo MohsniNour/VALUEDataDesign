@@ -1,3 +1,6 @@
 com\tn\value\projectService\ProjectServiceMockitoTest.class
 com\tn\value\projectService\ProjectServiceApplicationTests.class
 com\tn\value\projectService\TestH2Repository.class
+com\tn\value\projectService\ModelServiceMockitoTest.class
+com\tn\value\projectService\ModelServiceMockitoTest$1.class
+com\tn\value\projectService\ProjectServiceMockitoTest$1.class

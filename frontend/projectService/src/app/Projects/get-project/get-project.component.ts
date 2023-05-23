@@ -7,6 +7,7 @@ import { ProjectService } from 'src/app/service/project/project.service';
 import { AddModelDialogComponent } from 'src/app/models/add-model-dialog/add-model-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateProjectDialogComponent } from '../update-project-dialog/update-project-dialog.component';
+import { DeleteModelDialogComponent } from 'src/app/models/delete-model-dialog/delete-model-dialog.component';
 
 @Component({
   selector: 'app-get-project',
@@ -47,6 +48,15 @@ export class GetProjectComponent implements OnInit {
     if(confirm('Are you sure to delete this model ?'))
     this.modelService.deleteModel(id).subscribe();
     location.reload();
+  }
+
+  deleteModelDialog(id:any){
+    this.matDialog.open(DeleteModelDialogComponent,{
+      data: id,
+      width:'700px', 
+      height:'150px',
+      panelClass: ['animate__animated'],
+    });
   }
 
   openAddDialog(){

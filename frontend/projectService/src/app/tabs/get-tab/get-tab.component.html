@@ -1,0 +1,71 @@
+<div class="container-fluid page">
+    <div class="page__box col-12">
+        <div class="page__box-title col-12">
+            <div class="col-5 mt-2">{{ tab.name }}</div>
+            <button mat-button class="update-button col-1"><i class="fa-solid fa-pen" style="color: #181818;"></i></button>
+            <div class="col-5 mt-2">{{ tab.description }} </div>
+          <button mat-button class="update-button col-1"><i class="fa-solid fa-pen" style="color: #181818;"></i></button>
+        </div>
+    </div>
+    <div class="page__box-search">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Attribute name</mat-label>
+              <input matInput placeholder="" value="">
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="page__box-action">
+        <button mat-raised-button class="addJoin-button" (click)="openDialog()"> Add join
+            <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
+        </button>
+        <button mat-raised-button class="download-button" (click)="exportAttribute()"> Download
+            <i class="fa-sharp fa-solid fa-download" style="color: #181818;"></i>
+        </button>
+        <button mat-raised-button class="add-button"> New 
+            <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
+        </button>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 col-12 mt-3">
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> description </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Type </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Decimal </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Decimal </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Required </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> PK </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> FK </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container> -->
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+</div>

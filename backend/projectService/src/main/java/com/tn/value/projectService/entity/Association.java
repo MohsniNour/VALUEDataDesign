@@ -1,14 +1,13 @@
 package com.tn.value.projectService.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,14 +22,12 @@ public class Association implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long idJoin;
-    public Long idBindingTable;
-    public String typeBindingTable;
-    public Long idBoundTable;
-    public String typeBoundTable;
+    @ManyToOne
+    public Tab bindingTable;
+    @ManyToOne
+    public Tab boundTable;
 
     public String value;
-    @ManyToOne
-    private TabAttribute attribute;
 
 
 }

@@ -1,0 +1,29 @@
+.submit-button{
+    margin-right: 20px;
+    border-radius: 5px;
+    background-color: rgba(53, 114, 132, .5);
+    border-color: #357284;
+}
+.cancel-button{
+    border-radius: 5px;
+    background-color: rgba(255, 136, 37, .5);
+    border-color: rgba(255, 136, 37);
+}
+.dialogContent{
+    height: 100%;
+    margin-left: 50px;
+    margin-top: 40px;
+    display: flex;
+}
+.dialogTabContent{
+    display: flex;
+}
+.input{
+    margin-left: 50px;
+    width: 150px !important;
+}
+.action-box{
+    margin-top: 60px;
+    display: flex;
+    justify-content: right;
+}

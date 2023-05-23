@@ -24,7 +24,7 @@ export class UpdateProjectDialogComponent implements OnInit {
   }
 
   onSubmit(){
-    if(confirm('Are you sure you want to update this project ?'))
+    // if(confirm('Are you sure you want to update this project ?'))
     console.log(this.project);
     this.updateProject();
     location.reload();

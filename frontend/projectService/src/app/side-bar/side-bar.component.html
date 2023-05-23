@@ -21,27 +21,6 @@
             </li>
         </ul>
      </div>
-                    <!--
-                    <a routerLinkActive="list-item-active" class="nav-link project-sub-menu">
-                        <i class="fa-solid fa-folder" style="color: #181818;margin-left: 35px;"></i>
-                        Projects
-                        <i class="fas fa-angle-right dropdown" style="color: #181818;"></i>
-                    </a>
-                    <div class="sub-menu">
-                        <div *ngFor="let project of projects">
-                            <a routerLink="/projects/{{project.idProject}}" class="nav-link">
-                                {{project.name}}
-                            </a>
-                        </div>
-                    </div>
-                    <a routerLink="/Tags" routerLinkActive="list-item-active" class="nav-link">
-                        <i class="fa-solid fa-tag" style="color: #181818; margin-left: 35px;"></i>
-                        Tags
-                        <i class="fas fa-angle-right dropdown" style="color: #181818;"></i>
-                    </a>
-            </li>
-        </ul> 
-    </div> -->
 </mat-nav-list>
 <ng-template #parentMenu let-menu="menu" >
     <mat-list-item [routerLink]="menu.routerLink" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" *ngFor="let project of projects">
@@ -57,8 +36,8 @@
         </mat-expansion-panel-header>
         <mat-nav-list>
             <mat-list-item routerLink="/Projects/{{submenu.idProject}}" *ngFor="let submenu of projects" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
-                {{submenu.name}} 
-                <!-- {{submenu.idProject}}  -->
+                {{submenu.name}}
+                
             </mat-list-item>
         </mat-nav-list>
     </mat-expansion-panel>

@@ -15,4 +15,9 @@ export class TabService {
   getTabListByIdModel(id:any): Observable<Tab[]>{
     return this.httpClient.get<Tab[]>(`${this.baseURL}/${id}`);
   }
+
+  getTabById(id:number): Observable<Tab>{
+    return this.httpClient.get<Tab>(`${this.baseURL}/getById/${id}`);
+  }
+  
 }

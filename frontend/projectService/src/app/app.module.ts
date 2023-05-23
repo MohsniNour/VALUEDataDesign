@@ -17,7 +17,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HomeComponent } from './home/home.component';
@@ -29,6 +31,11 @@ import { AddModelDialogComponent } from './models/add-model-dialog/add-model-dia
 import { GetModelComponent } from './models/get-model/get-model.component';
 import { UpdateProjectDialogComponent } from './Projects/update-project-dialog/update-project-dialog.component';
 import { UpdateModelDialogComponent } from './models/update-model-dialog/update-model-dialog.component';
+import { GetTabComponent } from './tabs/get-tab/get-tab.component';
+import { AddJoinComponent } from './join/add-join/add-join.component';
+import { DeleteProjectComponent } from './Projects/delete-project/delete-project.component';
+import { DeleteModelDialogComponent } from './models/delete-model-dialog/delete-model-dialog.component';
+
 
 
 @NgModule({
@@ -43,7 +50,11 @@ import { UpdateModelDialogComponent } from './models/update-model-dialog/update-
     AddModelDialogComponent,
     GetModelComponent,
     UpdateProjectDialogComponent,
-    UpdateModelDialogComponent
+    UpdateModelDialogComponent,
+    GetTabComponent,
+    AddJoinComponent,
+    DeleteProjectComponent,
+    DeleteModelDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +75,8 @@ import { UpdateModelDialogComponent } from './models/update-model-dialog/update-
     MatFormFieldModule,
     MatDialogModule,
     DragDropModule, 
+    MatTableModule,
+    MatSelectModule,
     HttpClientModule
   ],
   providers: [],

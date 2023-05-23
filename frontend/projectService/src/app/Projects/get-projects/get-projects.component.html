@@ -25,7 +25,7 @@
                 </mat-card-header>
                 <mat-card-actions class="action-box">
                   <button mat-button class="show-button"><a href="/Projects/{{ project.idProject}}"><i class="fa-solid fa-eye" style="color: #181818;"></i></a></button>
-                  <button mat-button class="delete-button" (click)="deleteProject(project.idProject)"><i class="fa-solid fa-trash" style="color: #181818;"></i></button>
+                  <button mat-button class="delete-button" (click)="deleteProjectDialog(project.idProject)"><i class="fa-solid fa-trash" style="color: #181818;"></i></button>
                 </mat-card-actions>
               </mat-card>
         </div>

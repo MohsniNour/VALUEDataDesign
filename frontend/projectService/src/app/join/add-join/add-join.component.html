@@ -1,0 +1,38 @@
+<button mat-icon-button style="float:right;" matDialogClose>
+    <mat-icon>close</mat-icon>
+</button>
+<mat-dialog-content>
+    <header><h1>Add Join</h1></header>
+    <form (ngSubmit)="onSubmit()">
+        <div class="dialogContent">
+            <div class="dialogTabContent">
+                <h2 class="mr-5"> Table </h2>
+                <mat-form-field appearance="fill" class="input">
+                    <mat-label>Choose a Table</mat-label>
+                    <mat-select [disabled]="disableSelect.value">
+                        <mat-option value="option1">Option 1</mat-option>
+                        <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
+                        <mat-option value="option3">Option 3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="dialogTabContent ml-5">
+                <h2 class="mr-5"> Value  </h2>
+                <mat-form-field appearance="fill" class="input">
+                    <mat-label>Choose a value</mat-label>
+                    <mat-select [disabled]="disableSelect.value">
+                        <mat-option value="1..1">1..1</mat-option>
+                        <mat-option value="0..*" disabled>0..*</mat-option>
+                        <mat-option value="1..*">1..*</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+            <div class="action-box">
+                <button mat-button class="submit-button" type="submit"> Submit</button>
+                <button mat-button class="cancel-button" matDialogClose> Cancel</button>
+            </div>
+
+    </form>
+
+</mat-dialog-content>

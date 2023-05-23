@@ -21,10 +21,10 @@
     </div>
     <div class="page__content shadow p-3 position-relative">
         <div class="page__content-data">
-            <div class="example-box" cdkDragBoundary=".page__content-data" *ngFor="let tab of tabs" cdkDrag>
-               {{tab.name}} / {{tab.description}} 
-               <mat-divider></mat-divider>
+             <div class="example-box" cdkDragBoundary=".page__content-data" *ngFor="let tab of tabs" cdkDrag>
+                <div class="mt-2"><a href="/Projects/{{ model.project.idProject}}/model/{{model.idModel}}/tab/{{tab.idTable}}">{{tab.name}}</a></div>
+                <mat-divider class="mt-2"></mat-divider>
             </div>
-        </div>
+            <div class="tab-line"></div>
     </div>
 </div>

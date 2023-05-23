@@ -28,7 +28,7 @@ export class ProjectService {
     return this.httpClient.put(`${this.baseURL}/update/${project.idProject}`,project);
   }
 
-  deleteProject(id:number): Observable<Object>{
+  deleteProject(id:any): Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/delete/${id}`);
   }
 }

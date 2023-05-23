@@ -5,12 +5,10 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -31,7 +29,6 @@ public class TabAttribute implements Serializable{
 	public int lengthAttribute;
 	public int decimalAttribute;
 	public Boolean requiredAttribute;
-	public Boolean distributionKey;
 	public Boolean PKey;
 	public Boolean FKey;
 	@ManyToOne

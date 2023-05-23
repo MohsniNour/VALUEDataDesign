@@ -32,7 +32,7 @@ public class Project implements Serializable{
 	private User user;
 
 	@JsonIgnore
-	@OneToMany
+	@OneToMany(mappedBy = "project", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Model> models;
 	
 	
