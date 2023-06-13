@@ -6,10 +6,15 @@
     /* border: solid red; */
 }
 .page__box-title{
-    /* text-transform: uppercase; */
+    flex: 1;
     font-weight:550;
     color: #181818;
 }
+.page__box-search{
+    flex: 1; 
+    text-align: -webkit-right;
+}
+
 .page__box-add{
     display: flex;
     justify-content:end;

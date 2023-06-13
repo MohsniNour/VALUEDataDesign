@@ -8,6 +8,11 @@
     font-weight:550;
     color: #181818;
     width : 350px;
+    flex: 1;
+}
+.page__box-search{
+    flex: 1; 
+    text-align: -webkit-right;
 }
 .page__box-add{
     display: flex;

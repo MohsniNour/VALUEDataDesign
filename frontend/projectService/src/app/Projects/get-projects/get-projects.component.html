@@ -1,12 +1,19 @@
 <div class="container-fluid page">
     <div class="page__box">
-        <div class="page__box-title">Recent projects</div>
+        <div class="page__box-title">List of projects</div>
         <div class="page__box-search">
-            <form class="example-form">
+            <!-- <form class="example-form" style="width: 100%;">
                 <mat-form-field class="example-full-width">
-                  <mat-label>Project name</mat-label>
+                  <mat-label>Search with project name</mat-label>
                   <input matInput placeholder="" value="">
                 </mat-form-field>
+            </form> -->
+            <form class="example-form" style="width: 70%;">
+              <mat-form-field class="example-full-width" style="width: 100%;">
+              <span matPrefix> </span>
+              <input type="tel" matInput placeholder="Search with project name" name= "search" [(ngModel)]= "search">
+              <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+              </mat-form-field>
               </form>
         </div>
     </div>
@@ -19,7 +26,7 @@
     </div>
     <div class="page__content shadow p-3 position-relative">
         <div class="page__content-data">
-            <mat-card class="card__box" *ngFor="let project of projects">
+            <mat-card class="card__box" *ngFor="let project of projects | filter:search ">
                 <mat-card-header>
                   <mat-card-title>{{ project.name }}</mat-card-title>
                 </mat-card-header>

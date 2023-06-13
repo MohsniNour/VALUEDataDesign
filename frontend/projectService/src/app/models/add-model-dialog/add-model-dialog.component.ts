@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Model } from 'src/app/model/model/model';
 import { ModelService } from 'src/app/service/model/model.service';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-add-model-dialog',
@@ -12,7 +13,7 @@ export class AddModelDialogComponent implements OnInit {
 
   model : Model = new Model();
   id!:number;
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any, private modelService : ModelService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any, private modelService : ModelService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     console.log(this.data)
@@ -27,7 +28,14 @@ export class AddModelDialogComponent implements OnInit {
   onSubmit(){
     console.log(this.model);
     this.saveModel();
-    location.reload();
+    this.showNotification()
+  }
+
+  showNotification() {
+    this.toastr.success('new model added successfully');
+    setTimeout(() => {
+      window.location.reload(); // Reload the page after a delay
+    }, 1000); // Delay in milliseconds (e.g., 2000 milliseconds = 2 seconds)
   }
 
 }

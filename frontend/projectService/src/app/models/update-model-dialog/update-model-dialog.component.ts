@@ -25,7 +25,7 @@ export class UpdateModelDialogComponent implements OnInit {
   }
 
   onSubmit(){
-    if(confirm('Are you sure you want to update this model ?'))
+    // if(confirm('Are you sure you want to update this model ?'))
     console.log(this.model);
     this.updateModel();
     location.reload();

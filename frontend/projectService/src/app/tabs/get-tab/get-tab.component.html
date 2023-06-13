@@ -8,17 +8,16 @@
         </div>
     </div>
     <div class="page__box-search">
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <mat-label>Attribute name</mat-label>
-              <input matInput placeholder="" value="">
-            </mat-form-field>
-        </form>
-    </div>
+      <form class="example-form" style="width: 40%;">
+          <mat-form-field class="example-full-width" style="width: 100%;">
+          <span matPrefix> </span>
+          <input type="tel" matInput placeholder="Search with table name" name= "search" [(ngModel)]= "search">
+          <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+          </mat-form-field>
+      </form>
+  </div>
     <div class="page__box-action">
-        <button mat-raised-button class="addJoin-button" (click)="openDialog()"> Add join
-            <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
-        </button>
+      
         <button mat-raised-button class="download-button" (click)="exportAttribute()"> Download
             <i class="fa-sharp fa-solid fa-download" style="color: #181818;"></i>
         </button>
@@ -26,46 +25,73 @@
             <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
         </button>
     </div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 col-12 mt-3">
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> Name</th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> description </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Type </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-        </ng-container>
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Decimal </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
+    <table mat-table [dataSource]="dataSource | filter:search" class="mat-elevation-z8 page__content position-relative">
 
-        <!-- <ng-container matColumnDef="symbol">
-            <th mat-header-cell *matHeaderCellDef> Decimal </th>
-            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="symbol">
-            <th mat-header-cell *matHeaderCellDef> Required </th>
-            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="symbol">
-            <th mat-header-cell *matHeaderCellDef> PK </th>
-            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="symbol">
-            <th mat-header-cell *matHeaderCellDef> FK </th>
-            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container> -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element "> {{element.description}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element "> {{element.type}} </td>
+      </ng-container>
+      <ng-container matColumnDef="lengthAttribute">
+        <th mat-header-cell *matHeaderCellDef> Length </th>
+        <td mat-cell *matCellDef="let element "> {{element.lengthAttribute}} </td>
+      </ng-container>
+      <ng-container matColumnDef="decimalAttribute">
+        <th mat-header-cell *matHeaderCellDef> Decimal </th>
+        <td mat-cell *matCellDef="let element "> {{element.decimalAttribute}} </td>
+      </ng-container>
+      <ng-container matColumnDef="requiredAttribute">
+        <th mat-header-cell *matHeaderCellDef> Required </th>
+        <td mat-cell *matCellDef="let element "> {{element.requiredAttribute}} </td>
+      </ng-container>
+      <ng-container matColumnDef="PKey">
+        <th mat-header-cell *matHeaderCellDef> PKey </th>
+        <td mat-cell *matCellDef="let element"> {{element.PKey}} </td>
+      </ng-container>
+      <ng-container matColumnDef="FKey">
+        <th mat-header-cell *matHeaderCellDef> FKey </th>
+        <td mat-cell *matCellDef="let element"> {{element.FKey}} </td>
+      </ng-container>
+      <ng-container matColumnDef="tag">
+        <th mat-header-cell *matHeaderCellDef> Tag </th>
+        <td mat-cell *matCellDef="let element"> </td>
+      </ng-container>
       
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <!-- <table style="backgroundColor:red" >
+          <tr>
+          <th> Name</th>
+          <th> Description</th>
+          <th> Type</th>
+          <th> Length</th>
+          <th> Decimal</th>
+          <th> Required</th>
+          <th> PKey</th>
+          <th> FKey</th>
+          <th> Log</th>
+        </tr>
+          <tr *ngFor="let attribute of attributes">
+          <td> {{attribute.name}} </td>
+          <td> {{attribute.description}} </td>
+          <td> {{attribute.type}} </td>
+          <td> {{attribute.lengthAttribute}} </td>
+          <td> {{attribute.decimalAttribute}} </td>
+          <td> {{attribute.requiredAttribute}} </td>
+          <td> {{attribute.PKey}} </td>
+          <td> {{attribute.FKey}} </td>
+          <td> </td>
+          </tr>
+      </table> -->
       
 </div>

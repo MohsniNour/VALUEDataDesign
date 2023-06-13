@@ -1,1 +1,34 @@
-<p>home works!</p>
+<div class="container-fluid page">
+    <div class="page__box">
+        <div class="page__box-title">Recent projects</div>
+        <div class="page__box-search">
+            <form class="example-form" style="width: 70%;">
+              <mat-form-field class="example-full-width" style="width: 100%;">
+              <span matPrefix> </span>
+              <input type="tel" matInput placeholder="Search with project name" name= "search" [(ngModel)]= "search">
+              <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+              </mat-form-field>
+              </form>
+        </div>
+    </div>
+    <table mat-table [dataSource]="dataSource | filter:search " class="mat-elevation-z8 page__content position-relative">
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Last update date </th>
+          <td mat-cell *matCellDef="let element "> {{element.lastUpdatedDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastUpdate">
+          <th mat-header-cell *matHeaderCellDef> Last update </th>
+          <td mat-cell *matCellDef="let element">{{element.order}} day(s)</td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>

@@ -22,6 +22,7 @@ com\tn\value\projectService\service\Implementation\UserServiceImpl.class
 com\tn\value\projectService\entity\Project$ProjectBuilder.class
 com\tn\value\projectService\service\IUserService.class
 com\tn\value\projectService\entity\Association.class
+com\tn\value\projectService\service\ExportAttributeService.class
 com\tn\value\projectService\repository\TabRepository.class
 com\tn\value\projectService\controller\AttributeRestController.class
 com\tn\value\projectService\entity\Model$ModelBuilder.class

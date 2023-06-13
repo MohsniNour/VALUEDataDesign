@@ -19,11 +19,19 @@
     display: flex;
 }
 .input{
-    margin-left: 50px;
     width: 150px !important;
 }
+.input-space{
+    margin-right: 140px;
+}
 .action-box{
-    margin-top: 60px;
+    margin-top: 20px;
     display: flex;
     justify-content: right;
+}
+.title{
+    margin-right: 195PX;
+}
+h5{
+    color: gray;
 }

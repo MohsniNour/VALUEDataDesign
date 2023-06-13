@@ -7,6 +7,9 @@ import com.tn.value.projectService.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 @CrossOrigin("*")
 @RestController
@@ -53,6 +56,7 @@ public class ProjectRestController {
     public Project update(@RequestBody Project project,@PathVariable("id") Long id) {
         Project p = projectService.getById(id);
         p.setName(project.name);
+        p.setLastUpdatedDate(LocalDateTime.now());
         return projectService.update(p);
     }
 

@@ -5,8 +5,12 @@
     align-items: center;
     /* border: solid red; */
 }
+.page__box-search{
+    flex: 1; 
+    text-align: -webkit-right;
+}
 .page__box-title{
-    /* text-transform: uppercase; */
+    flex: 1;
     font-weight:550;
     color: #181818;
 }
@@ -16,6 +20,7 @@
     margin : 10px 20px auto 20px;
 }
 .add-button{
+    margin-left: 20px;
     border-radius: 5px;
     background-color: rgba(255, 136, 37, .5);
     border-color: rgba(255, 136, 37);
@@ -30,6 +35,11 @@
     border-radius: 5px;
     background-color: rgba(255, 136, 37, .5);
     border-color: rgba(255, 136, 37);
+}
+.addJoin-button{
+    border-radius: 5px;
+    background-color: rgba(53, 114, 132, .5);
+    border-color: rgba(53, 114, 132);
 }
 .action-box{
     display: flex;
@@ -109,6 +119,66 @@ mat-card-header{
   .page__content-data:hover .tab-line {
     transform: scaleY(1);
   }
+
+  #diagram, #toolbox {
+    margin: 20px 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: lightgrey;
+    height: 90vh;
+}
+
+#toolbox {
+    display: flex;
+    padding: 10px;
+    flex-flow: row wrap;
+    align-content: flex-start;
+}
+
+.control {
+    border-color: green;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    width: 120px;
+    text-align: center;
+    cursor: move;
+    height: fit-content;
+    height: -moz-max-content;
+    background-color: white;
+}
+
+#diagram .control {
+    position: absolute;
+}
+
+.window {
+    z-index: 20;
+}
+
+.jtk-connector {
+    z-index: 4;
+}
+
+.jtk-endpoint {
+    z-index: 5;
+}
+
+.jtk-overlay {
+    z-index: 6;
+}
+
+.custom-menu {
+    z-index: 1000;
+    position: absolute;
+    background-color: #C0C0C0;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+#toolbox .control {
+    margin: 10px 5px;
+}
   
   
   

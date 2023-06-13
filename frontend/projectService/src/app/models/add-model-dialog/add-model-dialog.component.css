@@ -10,17 +10,27 @@
     border-color: rgba(255, 136, 37);
 }
 .dialogContent{
-    margin-left: 50px;
+    height: 100%;
     margin-top: 40px;
     display: flex;
-}
-.input{
-    margin-left: 50px;
-    width: 350px !important;
+    justify-content: space-between;
 }
 .action-box{
     margin-right: 15px;
     margin-top: 30px;
     display: flex;
     justify-content: right;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  .example-full-width {
+    /* background-color: #f5f7f8; */
+    width: 80%;
+  }
+h2{
+    margin-top: auto;
+    color:grey;
 }

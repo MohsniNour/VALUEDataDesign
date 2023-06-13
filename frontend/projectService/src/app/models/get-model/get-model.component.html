@@ -6,25 +6,42 @@
           <button mat-button class="update-button" (click)="openUpdateDialog()"><i class="fa-solid fa-pen" style="color: #181818;"></i></button>
         </div>
         <div class="page__box-search">
-            <form class="example-form">
-                <mat-form-field class="example-full-width">
-                  <mat-label>Table name</mat-label>
-                  <input matInput placeholder="" value="">
+            <form class="example-form" style="width: 70%;">
+                <mat-form-field class="example-full-width" style="width: 100%;">
+                <span matPrefix> </span>
+                <input type="tel" matInput placeholder="Search with table name" name= "search" [(ngModel)]= "search">
+                <button matSuffix mat-button><mat-icon >search</mat-icon></button>
                 </mat-form-field>
-              </form>
+            </form>
         </div>
     </div>
     <div class="page__box-add">
+        <button mat-raised-button class="addJoin-button" (click)="openDialog()"> Add join
+            <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
+        </button>
         <button mat-raised-button class="add-button"> New 
             <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
         </button>
     </div>
-    <div class="page__content shadow p-3 position-relative">
-        <div class="page__content-data">
-             <div class="example-box" cdkDragBoundary=".page__content-data" *ngFor="let tab of tabs" cdkDrag>
-                <div class="mt-2"><a href="/Projects/{{ model.project.idProject}}/model/{{model.idModel}}/tab/{{tab.idTable}}">{{tab.name}}</a></div>
-                <mat-divider class="mt-2"></mat-divider>
+    <div>
+        <!-- <div class="page__content shadow p-3 position-relative" id="diagram" style="height: 90vh; position: relative">
+            <div class="page__content-data">
+                <div class="example-box control" id="control1" cdkDragBoundary=".page__content-data" cdkDrag>
+                    <div  style="left: 50px; top: 50px">Control 1</div>
+                </div>
+                <div class="example-box control" id="control2" cdkDragBoundary=".page__content-data" cdkDrag>
+                    <div  style="left: 50px; top: 50px">Control 2</div>
+                </div>
             </div>
-            <div class="tab-line"></div>
-    </div>
+          
+        </div> -->
+        <div class="page__content shadow p-3 position-relative">
+            <div class="page__content-data">
+                 <div class="example-box" cdkDragBoundary=".page__content-data" *ngFor="let tab of tabs | filter:search" cdkDrag>
+                    <div class="mt-2"><a href="/Projects/{{ model.project.idProject}}/model/{{model.idModel}}/tab/{{tab.idTable}}">{{tab.name}}</a></div>
+                    <mat-divider class="mt-2"></mat-divider>
+                </div>
+                <div class="tab-line"></div>
+        </div>
 </div>
+  

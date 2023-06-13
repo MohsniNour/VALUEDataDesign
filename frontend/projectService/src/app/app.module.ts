@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -35,6 +34,9 @@ import { GetTabComponent } from './tabs/get-tab/get-tab.component';
 import { AddJoinComponent } from './join/add-join/add-join.component';
 import { DeleteProjectComponent } from './Projects/delete-project/delete-project.component';
 import { DeleteModelDialogComponent } from './models/delete-model-dialog/delete-model-dialog.component';
+import { jsPlumb } from 'jsplumb';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -61,6 +63,7 @@ import { DeleteModelDialogComponent } from './models/delete-model-dialog/delete-
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     // Material IMPORTS
     MatSidenavModule,
     MatToolbarModule,
@@ -77,7 +80,9 @@ import { DeleteModelDialogComponent } from './models/delete-model-dialog/delete-
     DragDropModule, 
     MatTableModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
+    //jsPlumb
   ],
   providers: [],
   bootstrap: [AppComponent]

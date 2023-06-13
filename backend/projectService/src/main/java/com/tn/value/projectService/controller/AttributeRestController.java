@@ -1,15 +1,11 @@
 package com.tn.value.projectService.controller;
 
 import com.tn.value.projectService.entity.*;
-import com.tn.value.projectService.service.IAttributeService;
-import com.tn.value.projectService.service.IModelService;
-import com.tn.value.projectService.service.IProjectService;
-import com.tn.value.projectService.service.ITabService;
+import com.tn.value.projectService.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.Attribute;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -90,4 +86,17 @@ public class AttributeRestController {
         excel.export(response);
 
     }
+/*
+    // http://localhost:8089/VALUE/tabs/getById/1
+    @GetMapping("/export/pdf/{id}")
+    public ResponseEntity<InputStreamResource> exportToPDF(@PathVariable("id") Long id) throws IOException {
+        List<TabAttribute> attributeList = attributeService.getAllByIdTab(id);
+        ByteArrayInputStream bais = exportAttributeService.attributePDFReport(attributeList);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition","inline;filename.pdf");
+        return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(bais));
+
+    }
+
+ */
 }

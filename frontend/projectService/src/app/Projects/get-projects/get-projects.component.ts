@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class GetProjectsComponent implements OnInit {
   
   searchValue: string = '';
+  search !:any;
   projects !: Project [];
   
 
@@ -25,6 +26,7 @@ export class GetProjectsComponent implements OnInit {
   private getProjects(){
     this.projectService.getProjectList().subscribe(data =>{
       this.projects = data;
+      console.log(this.projects)
     });
   }
   deleteProject(id:number){
@@ -36,16 +38,16 @@ export class GetProjectsComponent implements OnInit {
   deleteProjectDialog(id:any){
     this.matDialog.open(DeleteProjectComponent,{
       data: id,
-      width:'700px', 
-      height:'150px',
+      width:'620px', 
+      height:'140px',
       panelClass: ['animate__animated'],
     });
   }
 
   openDialog(){
     this.matDialog.open(AddProjectDialogComponent,{
-      width:'700px', 
-      height:'280px',
+      width:'620px', 
+      height:'250px',
       panelClass: ['animate__animated'],
     });
   }

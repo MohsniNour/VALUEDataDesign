@@ -19,12 +19,16 @@ export class GetProjectComponent implements OnInit {
   id !: number;
   project : Project = new Project();
   models !: Model [];
+  search !:any;
+  
 
   constructor(private modelService : ModelService, private projectService: ProjectService, private route: ActivatedRoute,private matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getProjectById();
     this.getModelsByIdProject();
+    console.log(this.models)
+    console.log(this.project.idProject)
   }
 
   private getProjectById(){
@@ -41,6 +45,7 @@ export class GetProjectComponent implements OnInit {
     console.log(this.id)
     this.modelService.getModelListByIdProject(this.id).subscribe(data =>{
       this.models = data;
+      console.log(this.models)
     });
   }
 
@@ -53,16 +58,17 @@ export class GetProjectComponent implements OnInit {
   deleteModelDialog(id:any){
     this.matDialog.open(DeleteModelDialogComponent,{
       data: id,
-      width:'700px', 
-      height:'150px',
+      width:'620px', 
+      height:'140px',
       panelClass: ['animate__animated'],
     });
   }
 
   openAddDialog(){
     this.matDialog.open(AddModelDialogComponent,{
-      width:'700px', 
-      height:'280px',
+      width:'620px', 
+      height:'250px',
+      panelClass: ['animate__animated'],
       data:{
         id:this.id
       }
@@ -71,8 +77,9 @@ export class GetProjectComponent implements OnInit {
   
   openUpdateDialog(){
     this.matDialog.open(UpdateProjectDialogComponent,{
-      width:'700px', 
-      height:'280px',
+      width:'620px', 
+      height:'250px',
+      panelClass: ['animate__animated'],
       data:{
         project:this.project
       }

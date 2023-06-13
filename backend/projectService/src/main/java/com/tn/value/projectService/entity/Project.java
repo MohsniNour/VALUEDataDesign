@@ -1,6 +1,8 @@
 package com.tn.value.projectService.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -26,6 +28,9 @@ public class Project implements Serializable{
 	public Long idProject;
 	
 	public String name;
+
+	@Column(columnDefinition = "TIMESTAMP")
+	public LocalDateTime lastUpdatedDate;
 
 	@JsonIgnore
 	@ManyToOne

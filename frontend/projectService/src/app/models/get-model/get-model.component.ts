@@ -8,6 +8,8 @@ import { ModelService } from 'src/app/service/model/model.service';
 import { TabService } from 'src/app/service/tab/tab.service';
 import { UpdateModelDialogComponent } from '../update-model-dialog/update-model-dialog.component';
 import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
+import { AddJoinComponent } from 'src/app/join/add-join/add-join.component';
+import {jsPlumb} from 'jsplumb';
 
 interface Line {
   startX: number;
@@ -29,6 +31,7 @@ export class GetModelComponent implements OnInit{
   project : Project = new Project();
   model : Model = new Model();
   tabs !: Tab [];
+  search !:any;
 
   nodes = [
     { id: '1', label: 'Class 1', width: 120, height: 50 },
@@ -44,8 +47,25 @@ export class GetModelComponent implements OnInit{
   constructor(private modelService : ModelService, private tabService: TabService, private route: ActivatedRoute, private matDialog:MatDialog,private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    // const instance = jsPlumb.getInstance({});
+    // instance.setContainer('diagram');
+    // instance.bind('ready', () => {
+    //   instance.addEndpoint('control1', {
+    //     endpoint: 'Dot',
+    //     anchor: ['RightMiddle'],
+    //     isSource: true,
+    //     maxConnections: 5 // Set the desired value for maxConnections
+    //   });
+    //   instance.addEndpoint('control2', {
+    //     endpoint: 'Dot',
+    //     anchor: ['LeftMiddle'],
+    //     isTarget: true,
+    //     maxConnections: 5 // Set the desired value for maxConnections
+    //   });
+    // });
     this.getModelById();
     this.getTabsByIdModel();
+    console.log("tabs"+this.tabs);
   }
 
   private getModelById(){
@@ -62,13 +82,15 @@ export class GetModelComponent implements OnInit{
     console.log(this.id)
     this.tabService.getTabListByIdModel(this.id).subscribe(data =>{
       this.tabs = data;
+      console.log(this.tabs)
     });
   }
 
   openUpdateDialog(){
     this.matDialog.open(UpdateModelDialogComponent,{
-      width:'700px', 
-      height:'280px',
+      width:'620px', 
+      height:'250px',
+      panelClass: ['animate__animated'],
       data:{
         model:this.model
       }
@@ -77,42 +99,24 @@ export class GetModelComponent implements OnInit{
 
   openDeleteDialog(){
     this.matDialog.open(UpdateModelDialogComponent,{
-      width:'700px', 
-      height:'280px',
+      width:'620px', 
+      height:'250px',
+      panelClass: ['animate__animated'],
       data:{
         model:this.model
       }
     })
   }
 
-  @ViewChild('svgContainer', { static: true }) svgContainer!: ElementRef;
-  isDrawing: boolean = false;
-  startX: number = 0;
-  startY: number = 0;
-  endX: number = 0;
-  endY: number = 0;
-
-  startDrawing(event: MouseEvent, cardElement: HTMLElement): void {
-    this.isDrawing = true;
-    this.startX = event.clientX - cardElement.offsetLeft + cardElement.offsetWidth / 2;
-    this.startY = event.clientY - cardElement.offsetTop + cardElement.offsetHeight / 2;
-    console.log(this.startX,this.startY);
-  }
-
-  drawLine(event: MouseEvent): void {
-    if (this.isDrawing) {
-      const svgContainer = this.svgContainer.nativeElement;
-      const svgRect = svgContainer.getBoundingClientRect();
-      
-      this.endX = event.clientX - svgRect.left;
-      this.endY = event.clientY - svgRect.top;
-    }
-  }
-
-  stopDrawing(): void {
-    this.isDrawing = false;
-  }
-  log(line:any){
-    console.log('line',line);
+  openDialog(){
+    this.matDialog.open(AddJoinComponent,{
+      width:'560px', 
+      height:'490px',
+      panelClass: ['animate__animated'],
+      data:{
+        id:this.id,
+        tabs: this.tabs
+      }
+    });
   }
 }
