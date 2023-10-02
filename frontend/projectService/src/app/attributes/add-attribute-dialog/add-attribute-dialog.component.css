@@ -1,0 +1,43 @@
+.submit-button{
+    margin-right: 20px;
+    border-radius: 5px;
+    background-color: rgba(53, 114, 132, .5);
+    border-color: #357284;
+}
+.cancel-button{
+    border-radius: 5px;
+    background-color: rgba(255, 136, 37, .5);
+    border-color: rgba(255, 136, 37);
+}
+.dialogContent{
+    height: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.dialogContent-desc{
+    height: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.action-box{
+    margin-right: 15px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: right;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+.example-full-width {
+    margin: 0px 28px 0px 0px;
+    /* background-color: #f5f7f8; */
+    width: 25%;
+}
+h2{
+    margin-top: auto;
+    color:grey;
+}

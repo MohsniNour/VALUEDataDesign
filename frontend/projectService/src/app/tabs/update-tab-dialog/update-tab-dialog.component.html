@@ -1,0 +1,22 @@
+<button mat-icon-button style="float:right;" matDialogClose>
+    <mat-icon>close</mat-icon>
+</button>
+<mat-dialog-content>
+    <header><h1>Update Table</h1></header>
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm" class="example-form">
+        <div class="dialogContent">
+            <h2> Name  </h2>
+            <mat-form-field class="example-full-width">
+                <input matInput class="input" placeholder="Enter table name" id="name" [(ngModel)]="tab.name" name="name" required>
+            </mat-form-field>
+            <h2 class="ml-5"> Description  </h2>
+            <mat-form-field class="example-full-width">
+                <input matInput class="input" placeholder="Enter table description" id="description" [(ngModel)]="tab.description" name="description" required>
+            </mat-form-field>
+        </div>
+            <div class="action-box">
+                <button mat-button class="submit-button" type="submit" [disabled]="!myForm.form.valid"> Update</button>
+                <button mat-button class="cancel-button" matDialogClose> Cancel</button>
+            </div>
+    </form>
+</mat-dialog-content>

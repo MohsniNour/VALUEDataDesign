@@ -4,6 +4,7 @@ import com.tn.value.projectService.entity.*;
 import com.tn.value.projectService.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @CrossOrigin("*")
 @RestController
@@ -35,6 +37,13 @@ public class AttributeRestController {
     @ResponseBody
     public List<TabAttribute> getAllByIdTab(@PathVariable("id") Long idTab) {
         return attributeService.getAllByIdTab(idTab);
+    }
+
+    // http://localhost:8089/VALUE/attributes/1
+    @GetMapping("/{id}/tags")
+    @ResponseBody
+    public Set<Tag> getTagsForAttribute(@PathVariable("id") Long idTab) {
+        return  attributeService.getTagsForAttribute(idTab);
     }
 
     // http://localhost:8089/VALUE/attributes/getById/1
@@ -86,6 +95,7 @@ public class AttributeRestController {
         excel.export(response);
 
     }
+
 /*
     // http://localhost:8089/VALUE/tabs/getById/1
     @GetMapping("/export/pdf/{id}")

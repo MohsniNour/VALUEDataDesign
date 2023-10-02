@@ -19,5 +19,17 @@ export class TabService {
   getTabById(id:number): Observable<Tab>{
     return this.httpClient.get<Tab>(`${this.baseURL}/getById/${id}`);
   }
+
+  addTab(tab:Tab,id:number): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/add/${id}`,tab);
+  }
+
+  updateTab(tab:Tab): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/update/${tab.idTable}`,tab);
+  }
+
+  deleteTab(id:any): Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/delete/${id}`);
+  }
   
 }

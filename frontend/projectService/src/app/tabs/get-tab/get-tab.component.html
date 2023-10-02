@@ -1,30 +1,35 @@
-<div class="container-fluid page">
+<div class="container-fluid page" >
     <div class="page__box col-12">
-        <div class="page__box-title col-12">
-            <div class="col-5 mt-2">{{ tab.name }}</div>
-            <button mat-button class="update-button col-1"><i class="fa-solid fa-pen" style="color: #181818;"></i></button>
-            <div class="col-5 mt-2">{{ tab.description }} </div>
-          <button mat-button class="update-button col-1"><i class="fa-solid fa-pen" style="color: #181818;"></i></button>
+        <div class="page__box-title col-6">
+            <div class="col-2 mt-2">{{ tab.name }} : </div>
+            <div class="col-2 mt-2">{{ tab.description }} </div>
+            <button mat-button class="update-button col-1" (click)="openUpdateDialog()"><i class="fa-solid fa-pen" style="color: #181818;"></i></button>
+            <button mat-button class="col-1" (click)="openDeleteTabDialog(tab)"><i class="fa-solid fa-trash-can" style="color: #181818;"></i></button>
         </div>
     </div>
     <div class="page__box-search">
       <form class="example-form" style="width: 40%;">
           <mat-form-field class="example-full-width" style="width: 100%;">
           <span matPrefix> </span>
-          <input type="tel" matInput placeholder="Search with table name" name= "search" [(ngModel)]= "search">
+          <input type="text" matInput placeholder="Search with table name" name= "search" [(ngModel)]= "search">
           <button matSuffix mat-button><mat-icon >search</mat-icon></button>
           </mat-form-field>
       </form>
   </div>
     <div class="page__box-action">
+
       
-        <button mat-raised-button class="download-button" (click)="exportAttribute()"> Download
+        <button mat-raised-button class="download-button-PDF" (click)="exportAttributePDF()"> Download PDF
             <i class="fa-sharp fa-solid fa-download" style="color: #181818;"></i>
         </button>
-        <button mat-raised-button class="add-button"> New 
+        <button mat-raised-button class="download-button" (click)="exportAttribute()"> Download CSV
+          <i class="fa-sharp fa-solid fa-download" style="color: #181818;"></i>
+      </button>
+        <button mat-raised-button class="add-button"  (click)="openDialog()"> New 
             <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
         </button>
     </div>
+    <div #content >
     <table mat-table [dataSource]="dataSource | filter:search" class="mat-elevation-z8 page__content position-relative">
 
       <ng-container matColumnDef="name">
@@ -32,7 +37,7 @@
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
   
-      <ng-container matColumnDef="description">
+      <ng-container matColumnDef="description" style="width: 15px;">
         <th mat-header-cell *matHeaderCellDef> Description </th>
         <td mat-cell *matCellDef="let element "> {{element.description}} </td>
       </ng-container>
@@ -43,55 +48,116 @@
       </ng-container>
       <ng-container matColumnDef="lengthAttribute">
         <th mat-header-cell *matHeaderCellDef> Length </th>
-        <td mat-cell *matCellDef="let element "> {{element.lengthAttribute}} </td>
+        <td mat-cell *matCellDef="let element ">
+          <div>
+            <ng-container *ngIf="element.lengthAttribute==0; else elseBlock">
+              -
+            </ng-container>
+            <ng-template #elseBlock>
+              {{element.lengthAttribute}} 
+            </ng-template>
+          </div>
+        </td>
       </ng-container>
       <ng-container matColumnDef="decimalAttribute">
         <th mat-header-cell *matHeaderCellDef> Decimal </th>
-        <td mat-cell *matCellDef="let element "> {{element.decimalAttribute}} </td>
+        <td mat-cell *matCellDef="let element ">
+          <div>
+            <ng-container *ngIf="element.decimalAttribute==0; else elseBlock">
+              -
+            </ng-container>
+            <ng-template #elseBlock>
+              {{element.decimalAttribute}} 
+            </ng-template>
+          </div>
+        </td>
       </ng-container>
       <ng-container matColumnDef="requiredAttribute">
         <th mat-header-cell *matHeaderCellDef> Required </th>
-        <td mat-cell *matCellDef="let element "> {{element.requiredAttribute}} </td>
+        <td mat-cell *matCellDef="let element ">
+          <section class="example-section">
+            {{element.requiredAttribute}} 
+          </section>
+        </td>
       </ng-container>
       <ng-container matColumnDef="PKey">
         <th mat-header-cell *matHeaderCellDef> PKey </th>
-        <td mat-cell *matCellDef="let element"> {{element.PKey}} </td>
+        <td mat-cell *matCellDef="let element">
+          <section class="example-section">
+            {{element.PKey}} 
+          </section>
+        </td>
       </ng-container>
       <ng-container matColumnDef="FKey">
         <th mat-header-cell *matHeaderCellDef> FKey </th>
-        <td mat-cell *matCellDef="let element"> {{element.FKey}} </td>
+        <td mat-cell *matCellDef="let element">
+          <section class="example-section">
+            {{element.FKey}}
+          </section>
+        </td>
       </ng-container>
+      <!-- <ng-container matColumnDef="requiredAttribute">
+        <th mat-header-cell *matHeaderCellDef> Required </th>
+        <td mat-cell *matCellDef="let element ">
+          <section class="example-section">
+            <ng-container *ngIf="element.requiredAttribute==false; else elseBlock">
+              <mat-checkbox class="example-margin checkbox" color="warn"  [ngModel]="false" [disabled]="true" id="requiredAttribute" name="requiredAttribute"></mat-checkbox>
+            </ng-container>
+            <ng-template #elseBlock>
+              <mat-checkbox class="example-margin checkbox" color="warn"  [ngModel]="true" [disabled]="true" id="requiredAttribute" name="requiredAttribute"></mat-checkbox>
+            </ng-template>
+          </section>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="PKey">
+        <th mat-header-cell *matHeaderCellDef> PKey </th>
+        <td mat-cell *matCellDef="let element">
+          <section class="example-section">
+            <ng-container *ngIf="element.PKey==false; else elseBlock">
+              -
+            </ng-container>
+            <ng-template #elseBlock>
+              <i class="fa-solid fa-key"  style="color: #ff8825;"></i>
+            </ng-template>
+          </section>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="FKey">
+        <th mat-header-cell *matHeaderCellDef> FKey </th>
+        <td mat-cell *matCellDef="let element">
+          <section class="example-section">
+            <ng-container *ngIf="element.FKey==false; else elseBlock">
+              -
+            </ng-container>
+            <ng-template #elseBlock>
+              <i class="fa-solid fa-key" style="color: #a3a3a3;"></i>
+            </ng-template>
+          </section>
+        </td>
+      </ng-container> -->
       <ng-container matColumnDef="tag">
-        <th mat-header-cell *matHeaderCellDef> Tag </th>
-        <td mat-cell *matCellDef="let element"> </td>
+        <th mat-header-cell *matHeaderCellDef> Tags </th>
+        <td mat-cell *matCellDef="let element"> 
+          <ng-container *ngIf="element.tags.length==0; else elseBlock">
+            No tag specified
+          </ng-container>
+          <ng-template #elseBlock>
+            <div *ngFor="let tag of element.tags">
+              {{tag.name}} : {{tag.value}}
+            </div>
+          </ng-template>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="actions" class="action-box">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element">
+          <i class="fa-solid fa-trash-can" style="color: #181818;" (click)="deleteAttributeDialog(element.idAttribute)"></i>
+          <i class="fa-solid fa-pen ml-5 actions" style="color: #181818;" (click)="openUpdateAttributeDialog(element)"></i>
+        </td>
       </ng-container>
       
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <!-- <table style="backgroundColor:red" >
-          <tr>
-          <th> Name</th>
-          <th> Description</th>
-          <th> Type</th>
-          <th> Length</th>
-          <th> Decimal</th>
-          <th> Required</th>
-          <th> PKey</th>
-          <th> FKey</th>
-          <th> Log</th>
-        </tr>
-          <tr *ngFor="let attribute of attributes">
-          <td> {{attribute.name}} </td>
-          <td> {{attribute.description}} </td>
-          <td> {{attribute.type}} </td>
-          <td> {{attribute.lengthAttribute}} </td>
-          <td> {{attribute.decimalAttribute}} </td>
-          <td> {{attribute.requiredAttribute}} </td>
-          <td> {{attribute.PKey}} </td>
-          <td> {{attribute.FKey}} </td>
-          <td> </td>
-          </tr>
-      </table> -->
-      
+  </div>
 </div>

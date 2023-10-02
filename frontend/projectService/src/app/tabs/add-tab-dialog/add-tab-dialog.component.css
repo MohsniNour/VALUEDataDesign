@@ -1,0 +1,93 @@
+/* .page__box{
+    margin: 100px 20px auto 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+.page__box-section{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.page__box_body{
+    margin: 100px 20px auto 20px;
+    display: flex;
+    width: calc(100%-20px);
+    /* justify-content: center; */
+    /* margin: auto; */
+    align-items: center;
+    /* border: solid red; */
+}
+.page__box-title{
+    font-weight:550;
+    color: #181818;
+}
+.add-button{
+    border-radius: 5px;
+    background-color: rgba(255, 136, 37, .5);
+    border-color: rgba(255, 136, 37);
+}
+
+.submit-button{
+    margin-right: 20px;
+    border-radius: 5px;
+    background-color: rgba(53, 114, 132, .5);
+    border-color: #357284;
+}
+.cancel-button{
+    border-radius: 5px;
+    background-color: rgba(255, 136, 37, .5);
+    border-color: rgba(255, 136, 37);
+}
+.dialogContent{
+    height: 100%;
+    width: 60%;
+    margin-top: 20px ;
+    margin-left: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+.dialogContent-Att{
+    height: 100%;
+    width: 80%;
+    margin-top: 20px ;
+    margin-left: 120px;
+    display: flex;
+}
+.example-form {
+    width: 100%;
+}
+.example-width {
+    margin-right: 20px;
+    width: 25%;
+}
+h4{
+    margin-top: auto;
+    color:grey;
+}
+.submit-button{
+    margin-right: 20px;
+    border-radius: 5px;
+    background-color: rgba(53, 114, 132, .5);
+    border-color: #357284;
+}
+.cancel-button{
+    border-radius: 5px;
+    background-color: rgba(255, 136, 37, .5);
+    border-color: rgba(255, 136, 37);
+}
+.dialogContent-desc{
+    display: flex;
+    justify-content: space-between;
+}
+.action-box{
+    margin-right: 15px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: right;
+}
+h2{
+    margin-top: auto;
+    color:grey;
+}
+  

@@ -6,7 +6,6 @@
     color: #181818;
     width: 100%;
     margin-top: 40px;
-    /* margin-left: 15px; */
 }
 .nav-list {
     list-style: none;
@@ -74,13 +73,6 @@ a{
 h1{
     color: #181818;
 }
-/* .dropdown{
-    position:absolute;
-    right: 0;
-    margin: 20px;
-    transition: 0.3s ease;
-
-} */
 .sub-menu{
     display: grid;
     row-gap: .5rem;
@@ -108,3 +100,10 @@ ng-template{
 mat-expansion-panel{
     border-radius: unset;
 }
+.mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 8px;
+  }
+  mat-accordion{
+    background-color:#F5F7F8;
+    border-radius: 0%;
+  }

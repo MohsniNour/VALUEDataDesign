@@ -1,0 +1,38 @@
+<div class="container-fluid page">
+    <div class="page__box">
+        <div class="page__box-title">List of tags</div>
+        <div class="page__box-search">
+            <form class="example-form" style="width: 70%;">
+              <mat-form-field class="example-full-width" style="width: 100%;">
+              <span matPrefix> </span>
+              <input type="tel" matInput placeholder="Search with tag name" name= "search" [(ngModel)]= "search">
+              <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+              </mat-form-field>
+              </form>
+        </div>
+    </div>
+    <div class="page__box-add">
+        <mat-dialog-actions>
+          <button mat-raised-button class="add-button" (click)="openAddTagDialog()"> New 
+              <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
+          </button>
+        </mat-dialog-actions>
+      </div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="page__content-data">
+            <mat-card class="card__box" *ngFor="let tag of tags | filter:search ">
+                <mat-card-header> 
+                  <mat-card-title>{{ tag.name }} </mat-card-title>
+                  <mat-card-subtitle>{{ tag.value }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-actions class="action-box">  
+                  <button mat-button class="update-button" (click)="openUpdateTagDialog(tag)"><i class="fa-solid fa-pen" style="color: #181818;"></i></button>
+                  <button mat-button class="delete-button" (click)="openDeleteTagDialog(tag)"><i class="fa-solid fa-trash-can" style="color: #181818;"></i></button>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+    </div>
+</div>
+
+    
+

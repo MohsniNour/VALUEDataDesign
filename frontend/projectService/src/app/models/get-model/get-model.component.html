@@ -1,8 +1,7 @@
 <div class="container-fluid page">
     <div class="page__box">
         <div class="page__box-title"> 
-          {{model.project.name}} / 
-          {{ model.nameModel }} 
+          {{model.project.name}} / {{ model.nameModel }} 
           <button mat-button class="update-button" (click)="openUpdateDialog()"><i class="fa-solid fa-pen" style="color: #181818;"></i></button>
         </div>
         <div class="page__box-search">
@@ -19,27 +18,22 @@
         <button mat-raised-button class="addJoin-button" (click)="openDialog()"> Add join
             <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
         </button>
-        <button mat-raised-button class="add-button"> New 
-            <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
+        <button mat-raised-button class="add-button" routerLink="/Projects/{{model.project.idProject}}/model/{{model.idModel}}/tab/add">
+             New <i class="fa-sharp fa-solid fa-plus" style="color: #181818;"></i>
         </button>
     </div>
     <div>
-        <!-- <div class="page__content shadow p-3 position-relative" id="diagram" style="height: 90vh; position: relative">
-            <div class="page__content-data">
-                <div class="example-box control" id="control1" cdkDragBoundary=".page__content-data" cdkDrag>
-                    <div  style="left: 50px; top: 50px">Control 1</div>
-                </div>
-                <div class="example-box control" id="control2" cdkDragBoundary=".page__content-data" cdkDrag>
-                    <div  style="left: 50px; top: 50px">Control 2</div>
-                </div>
-            </div>
-          
-        </div> -->
         <div class="page__content shadow p-3 position-relative">
             <div class="page__content-data">
                  <div class="example-box" cdkDragBoundary=".page__content-data" *ngFor="let tab of tabs | filter:search" cdkDrag>
-                    <div class="mt-2"><a href="/Projects/{{ model.project.idProject}}/model/{{model.idModel}}/tab/{{tab.idTable}}">{{tab.name}}</a></div>
+                    <div class="mt-2" *ngIf="tab" routerLink="/Projects/{{ model.project.idProject}}/model/{{model.idModel}}/tab/{{tab.idTable}}">{{tab.name}}</div>
                     <mat-divider class="mt-2"></mat-divider>
+                    <div *ngFor="let attribute of attributes">
+                        <ng-container *ngIf="attribute.tab.idTable === tab.idTable">
+                            {{ attribute.name }} : 
+                            {{attribute.type}}
+                          </ng-container>
+                    </div>
                 </div>
                 <div class="tab-line"></div>
         </div>

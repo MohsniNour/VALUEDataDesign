@@ -3,7 +3,7 @@
 </button>
 <mat-dialog-content>
     <header><h1>Update Model</h1></header>
-    <form (ngSubmit)="onSubmit()" class="example-form">
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm" class="example-form">
         <div class="dialogContent">
             <h2> Name  </h2>
             <mat-form-field class="example-full-width">
@@ -11,7 +11,7 @@
             </mat-form-field>
         </div>
             <div class="action-box">
-                <button mat-button class="submit-button" type="submit"> Update</button>
+                <button mat-button class="submit-button" type="submit" [disabled]="!myForm.form.valid"> Update</button>
                 <button mat-button class="cancel-button" matDialogClose> Cancel</button>
             </div>
     </form>

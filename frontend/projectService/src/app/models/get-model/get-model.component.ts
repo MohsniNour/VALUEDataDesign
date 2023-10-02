@@ -8,15 +8,12 @@ import { ModelService } from 'src/app/service/model/model.service';
 import { TabService } from 'src/app/service/tab/tab.service';
 import { UpdateModelDialogComponent } from '../update-model-dialog/update-model-dialog.component';
 import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
-import { AddJoinComponent } from 'src/app/join/add-join/add-join.component';
+import { AddJoinComponent } from 'src/app/joins/add-join/add-join.component';
 import {jsPlumb} from 'jsplumb';
-
-interface Line {
-  startX: number;
-  startY: number;
-  endX: number;
-  endY: number;
-}
+import { AddTabDialogComponent } from 'src/app/tabs/add-tab-dialog/add-tab-dialog.component';
+import { Attribute } from 'src/app/model/Attribute/attribute';
+import { AttributeService } from 'src/app/service/attribute/attribute.service';
+import { DeleteModelDialogComponent } from '../delete-model-dialog/delete-model-dialog.component';
 
 
 @Component({
@@ -31,41 +28,16 @@ export class GetModelComponent implements OnInit{
   project : Project = new Project();
   model : Model = new Model();
   tabs !: Tab [];
+  attributes !: Attribute [];
   search !:any;
+  dataSource= [this.tabs,this.attributes]
 
-  nodes = [
-    { id: '1', label: 'Class 1', width: 120, height: 50 },
-    { id: '2', label: 'Class 2', width: 120, height: 50 },
-    // Add more nodes as needed
-  ];
-
-  links = [
-    { source: '1', target: '2' },
-    // Add more links as needed
-  ];
-
-  constructor(private modelService : ModelService, private tabService: TabService, private route: ActivatedRoute, private matDialog:MatDialog,private renderer: Renderer2) { }
+  constructor(private modelService : ModelService, private tabService: TabService, private attributeService: AttributeService,private route: ActivatedRoute, private matDialog:MatDialog,private renderer: Renderer2) { }
 
   ngOnInit(): void {
-    // const instance = jsPlumb.getInstance({});
-    // instance.setContainer('diagram');
-    // instance.bind('ready', () => {
-    //   instance.addEndpoint('control1', {
-    //     endpoint: 'Dot',
-    //     anchor: ['RightMiddle'],
-    //     isSource: true,
-    //     maxConnections: 5 // Set the desired value for maxConnections
-    //   });
-    //   instance.addEndpoint('control2', {
-    //     endpoint: 'Dot',
-    //     anchor: ['LeftMiddle'],
-    //     isTarget: true,
-    //     maxConnections: 5 // Set the desired value for maxConnections
-    //   });
-    // });
     this.getModelById();
     this.getTabsByIdModel();
-    console.log("tabs"+this.tabs);
+    this.getAttributeList();
   }
 
   private getModelById(){
@@ -74,7 +46,6 @@ export class GetModelComponent implements OnInit{
       this.model=data;
       console.log(this.project);
     });
-    
   }
 
   private getTabsByIdModel(){
@@ -85,6 +56,19 @@ export class GetModelComponent implements OnInit{
       console.log(this.tabs)
     });
   }
+  //  getAttributesByIdTab(id:number){
+  //    this.attributeService.getAttributeListByIdTab(id).subscribe(data =>{
+  //     this.attributes = data;
+  //     console.log(this.attributes)
+  //   });
+  //   return this.attributes.slice(0, 1)
+  // }
+  getAttributeList(){
+    this.attributeService.getAttributeList().subscribe(data =>{
+     this.attributes = data;
+     console.log(this.attributes)
+   });
+ }
 
   openUpdateDialog(){
     this.matDialog.open(UpdateModelDialogComponent,{
@@ -98,7 +82,7 @@ export class GetModelComponent implements OnInit{
   }
 
   openDeleteDialog(){
-    this.matDialog.open(UpdateModelDialogComponent,{
+    this.matDialog.open(DeleteModelDialogComponent,{
       width:'620px', 
       height:'250px',
       panelClass: ['animate__animated'],
@@ -111,12 +95,19 @@ export class GetModelComponent implements OnInit{
   openDialog(){
     this.matDialog.open(AddJoinComponent,{
       width:'560px', 
-      height:'490px',
+      height:'390px',
       panelClass: ['animate__animated'],
       data:{
         id:this.id,
         tabs: this.tabs
       }
+    });
+  }
+  addTabDialog(){
+    this.matDialog.open(AddTabDialogComponent,{
+      width:'620px', 
+      height:'250px',
+      panelClass: ['animate__animated'],
     });
   }
 }

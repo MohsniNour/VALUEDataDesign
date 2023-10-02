@@ -11,6 +11,10 @@ export class ModelService {
 
   constructor(private httpClient : HttpClient) { }
 
+  getModelList(): Observable<Model[]>{
+    return this.httpClient.get<Model[]>(`${this.baseURL}`);
+  }
+
   getModelListByIdProject(id:any): Observable<Model[]>{
     return this.httpClient.get<Model[]>(`${this.baseURL}/${id}`);
   }

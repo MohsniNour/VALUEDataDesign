@@ -27,19 +27,6 @@ export class AddProjectDialogComponent implements OnInit {
         })
       }
 
-  // onSubmit(){
-  //   this.projectList.forEach(obj => {
-  //     if (!(obj.name == this.project.name)) {
-  //       this.showNotificationError()
-  //     }else{
-  //     this.saveProject();
-  //       this.showNotification()
-  //   }});
-  //   // console.log(this.project);
-  //   // this.saveProject();
-    
-  // }
-
   onSubmit() {
     const isProjectNameExist = this.projectList.some(obj => obj.name === this.project.name);
     if (isProjectNameExist) {

@@ -16,7 +16,7 @@
                     </ng-container>
                      <a routerLink="/Tags" routerLinkActive="list-item-active" class="nav-link">
                         <i class="fa-solid fa-tag" style="color: #181818; margin-left: 35px;"></i>
-                        Tags
+                        Admin
                     </a>
             </li>
         </ul>
@@ -27,6 +27,31 @@
         Projects
     </mat-list-item>
 </ng-template>
+
+<!-- <ng-template #childMenu let-menu="menu" routerLinkActive="list-item-active" class="nav-link nav-list" >
+    <mat-expansion-panel [class.mat-elevation-z0]="true" style="background-color: #F5F7F8; ">
+        <mat-expansion-panel-header  (click)="showProject()">
+            <i class="fa-solid fa-folder" style="color: #181818;"></i>
+            Projects
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <mat-list-item routerLink="/Projects/{{submenu.idProject}}" *ngFor="let submenu of projects" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header style="width: 100%;">
+                        <mat-panel-title >
+                            {{submenu.name}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div *ngFor="let model of models">
+                        <div *ngIf="model.idProject==submenu.idProject" routerLink="/Projects/{{submenu.idProject}}/model/model.idModel">
+                            {{model.nameModel}}
+                        </div>
+                    </div>
+                </mat-expansion-panel>     
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-expansion-panel>
+</ng-template> -->
 
 <ng-template #childMenu let-menu="menu" routerLinkActive="list-item-active" class="nav-link nav-list" >
     <mat-expansion-panel [class.mat-elevation-z0]="true" style="background-color: #F5F7F8; ">

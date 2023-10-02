@@ -40,6 +40,7 @@ public class ProjectRestController {
     public Project add(@RequestBody Project p) {
         User u = userService.getById(1L);
         p.setUser(u);
+        p.setLastUpdatedDate(LocalDateTime.now());
         return projectService.add(p);
     }
 

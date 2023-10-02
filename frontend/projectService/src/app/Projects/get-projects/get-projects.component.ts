@@ -25,7 +25,11 @@ export class GetProjectsComponent implements OnInit {
 
   private getProjects(){
     this.projectService.getProjectList().subscribe(data =>{
-      this.projects = data;
+      if (this.search) {
+        this.projects = data.filter(obj => obj.name.includes(this.search));
+      } else {
+        this.projects = data;
+      }
       console.log(this.projects)
     });
   }
@@ -39,7 +43,7 @@ export class GetProjectsComponent implements OnInit {
     this.matDialog.open(DeleteProjectComponent,{
       data: id,
       width:'620px', 
-      height:'140px',
+      height:'160px',
       panelClass: ['animate__animated'],
     });
   }

@@ -25,7 +25,8 @@ public class TabServiceImpl implements ITabService {
 
     @Override
     public Tab add(Tab t) {
-        return tabRepository.save(t);
+        tabRepository.save(t);
+        return t;
     }
     @Override
     public void delete(Long id) { tabRepository.deleteById(id); }

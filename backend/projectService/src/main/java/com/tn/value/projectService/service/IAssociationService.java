@@ -8,6 +8,8 @@ public interface IAssociationService {
 
     List<Association> getAll();
 
+    List<Association> getAllByIdTab(Long idTab);
+
     Association add(Association a);
 
     void delete(Long id);

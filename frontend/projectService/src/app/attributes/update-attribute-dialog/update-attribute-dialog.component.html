@@ -1,0 +1,64 @@
+<button mat-icon-button style="float:right;" matDialogClose>
+    <mat-icon>close</mat-icon>
+</button>
+<mat-dialog-content>
+    <header><h1>Update Attribute</h1></header>
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm"  class="example-form">
+    <div class="dialogContent">
+        <mat-form-field class="example-full-width">
+            <input matInput class="input" placeholder="Attribute name" id="name" [(ngModel)]="attribute.name" name="name" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Type</mat-label>
+            <mat-select   id="type" [(ngModel)]="attribute.type"  name="type" required>
+                <mat-option value="varchar">varchar</mat-option>
+                <mat-option value="integer">integer</mat-option>
+                <mat-option value="double">double</mat-option>
+                <mat-option value="boolean">boolean</mat-option>
+                <mat-option value="date">date</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="number" class="input" placeholder="Length" id="lengthAttribute" [(ngModel)]="attribute.lengthAttribute" name="lengthAttribute">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput  type="number" class="input" placeholder="Decimal" id="decimalAttribute" [(ngModel)]="attribute.decimalAttribute" name="decimalAttribute">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Tag</mat-label>
+            <mat-select id="tag" [(ngModel)]="attribute.tags"  name="tag" multiple>
+                <mat-option *ngFor="let tag of tagList" [value]="tag.idTag">
+                    {{tag.name}} : {{tag.value}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="dialogContent-desc">
+        <mat-form-field class="example-full-width" style="width: 900px;">
+            <textarea matInput required
+            placeholder="Description"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="3"
+            cdkAutosizeMaxRows="5" id="description" [(ngModel)]="attribute.description" name="description"></textarea>
+        </mat-form-field>
+        <div>
+            <section class="example-section">
+                <mat-checkbox class="example-margin checkbox" color="warn" id="required" [(ngModel)]="attribute.requiredAttribute" name="required">Required</mat-checkbox>
+            </section>
+            <div>
+                <section class="example-section">
+                    <mat-checkbox class="example-margin" color="warn" id="pKey" [(ngModel)]="attribute.PKey" name="pKey">Primary key</mat-checkbox>
+                </section>
+                <section class="example-section">
+                    <mat-checkbox class="example-margin" color="warn" id="fKey" [(ngModel)]="attribute.FKey" name="fKey">Foreign key</mat-checkbox>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="action-box">
+        <button mat-button class="submit-button" type="submit" [disabled]="!myForm.form.valid"> Submit</button>
+        <button mat-button class="cancel-button" matDialogClose> Cancel</button>
+    </div>
+</form>
+</mat-dialog-content>
+

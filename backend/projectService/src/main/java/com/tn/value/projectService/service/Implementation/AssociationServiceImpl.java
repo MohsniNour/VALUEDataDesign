@@ -20,6 +20,11 @@ public class AssociationServiceImpl implements IAssociationService {
     }
 
     @Override
+    public List<Association> getAllByIdTab(Long idTab) {
+        return associationRepository.getAllByIdTab(idTab);
+    }
+
+    @Override
     public Association add(Association a) {
         return associationRepository.save(a);
     }

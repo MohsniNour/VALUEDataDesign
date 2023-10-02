@@ -1,3 +1,7 @@
+.container-fluid
+{
+    /* background-image: url('../../assets/HomePage.JPG'); */
+}
 .page__box{
     margin : 80px 20px auto 20px;
     display: flex;

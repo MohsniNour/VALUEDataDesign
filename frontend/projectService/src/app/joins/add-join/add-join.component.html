@@ -12,35 +12,13 @@
                 <mat-form-field appearance="fill" class="input input-space">
                     <mat-label>Table 1</mat-label>
                     <mat-select id="TabName1" [(ngModel)]="join.bindingTable" name="TabName1">
-                        <mat-option *ngFor="let tab of tabs"  [value]="tab.name">{{ tab.name }}</mat-option>
+                        <mat-option *ngFor="let tab of tabs"  [value]="tab">{{ tab.name }}</mat-option>
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="input">
                     <mat-label>Table 2</mat-label>
                     <mat-select  id="TabName2" [(ngModel)]="join.boundTable"  name="TabName2">
-                        <mat-option *ngFor="let tab of tabs"  [value]="tab.name">{{ tab.name }}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div class="dialogTabContent">
-                <h5 style="margin-right: 175px;"> Attribute Binding Table </h5>
-                <h5> Attribute Bound Table  </h5>
-            </div>
-            <div class="dialogTabContent">
-                <mat-form-field appearance="fill" class="input input-space">
-                    <mat-label>Select</mat-label>
-                    <mat-select [disabled]="disableSelect.value" >
-                        <mat-option value="option1">Option 1</mat-option>
-                        <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
-                        <mat-option value="option3">Option 3</mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field appearance="fill" class="input">
-                    <mat-label>Select</mat-label>
-                    <mat-select [disabled]="disableSelect.value">
-                        <mat-option value="1..1">1..1</mat-option>
-                        <mat-option value="0..*" disabled>0..*</mat-option>
-                        <mat-option value="1..*">1..*</mat-option>
+                        <mat-option *ngFor="let tab of tabs"  [value]="tab">{{ tab.name }}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>

@@ -4,28 +4,29 @@ import { Model } from '../model/model/model';
 import { Project } from '../model/project/project';
 import { ModelService } from '../service/model/model.service';
 import { ProjectService } from '../service/project/project.service';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
-  styleUrls: ['./side-bar.component.css']
+  styleUrls: ['./side-bar.component.css'],
 })
 export class SideBarComponent implements OnInit {
 
   @Input() sideBarStatus : Boolean = false;
   projects !: Project [];
   menuList:any = [];
-  models !: Model [];
+  models !: any [];
   modelList:any = [];
-  
+  panelOpenState = false;
 
   constructor(private projectService : ProjectService, private router: Router, private modelService : ModelService) { }
 
   ngOnInit(): void {
     this.getProjects();
-    this.getModels(1);
-    console.log(this.models);
-    
+    this.getModelList();
+    // this.getModels(1);
+    console.log(this.models); 
   }
 
   private getProjects(){
@@ -35,20 +36,39 @@ export class SideBarComponent implements OnInit {
       
     });
   }
+  log(id:any){
+    console.log("id " ,id)
+  }
 
-  private getModels(id:number){
-    this.modelList = [{text:"models",children:[]}];
-    this.modelService.getModelListByIdProject(id).subscribe(data =>{
+  // getModels(id:number){
+  //   // this.modelList = [{text:"models",children:[]}];
+  //   this.modelService.getModelListByIdProject(id).subscribe(data =>{
+  //     this.models = data;
+  //     //console.log("list model shown *******")
+  //     //console.log(this.models);
+  //   });
+  //   // return this.models;
+  // }
+  private getModelList(){
+    this.modelService.getModelList().subscribe(data =>{
       this.models = data;
-      
+      //console.log("list model shown *******")
+      //console.log(this.models);
     });
+    // return this.models;
   }
 
   showProject(){
     console.log("list project shown *******")
     console.log(this.projects)
-    console.log(this.models);
+    // console.log("list model shown *******")
+    // console.log(this.models);
     this.router.navigateByUrl('/Projects')
+  }
+
+  showModel(){
+    console.log("list model shown *******")
+    console.log(this.models);
   }
   
 

@@ -1,0 +1,22 @@
+<button mat-icon-button style="float:right;" matDialogClose>
+    <mat-icon>close</mat-icon>
+</button>
+<mat-dialog-content>
+    <header><h1>Update Tag</h1></header>
+    <form (ngSubmit)="onSubmit()"  #myForm="ngForm" class="example-form">
+        <div class="dialogContent">
+            <h3> Name  </h3>
+            <mat-form-field class="example-full-width">
+                <input matInput class="input" placeholder="Enter tag name" id="name" [(ngModel)]="tag.name" name="name" required>
+            </mat-form-field>
+            <h3> Value  </h3>
+            <mat-form-field class="example-full-width">
+                <input matInput class="input" placeholder="Enter tag value" id="name" [(ngModel)]="tag.value" name="value" required>
+            </mat-form-field>
+        </div>
+            <div class="action-box">
+                <button mat-button class="submit-button" type="submit" [disabled]="!myForm.form.valid"> Submit</button>
+                <button mat-button class="cancel-button" matDialogClose> Cancel</button>
+            </div>
+    </form>
+</mat-dialog-content>

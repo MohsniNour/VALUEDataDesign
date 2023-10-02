@@ -1,6 +1,7 @@
 package com.tn.value.projectService.controller;
 
 import com.tn.value.projectService.entity.Association;
+import com.tn.value.projectService.entity.Model;
 import com.tn.value.projectService.service.IAssociationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +17,17 @@ public class AssociationRestController {
     IAssociationService associationService;
 
 
-    // http://localhost:8089/VALUE/join/getAll
+    // http://localhost:8089/VALUE/joins/getAll
     @GetMapping("")
     @ResponseBody
     public List<Association> getAll() { return associationService.getAll(); }
 
+    // http://localhost:8089/VALUE/joins/1
+    @GetMapping("/{id}")
+    @ResponseBody
+    public List<Association> getAllByIdTab(@PathVariable("id") Long idTab) {
+        return associationService.getAllByIdTab(idTab);
+    }
     // http://localhost:8089/VALUE/join/getById/1
     @GetMapping("/getById/{id}")
     @ResponseBody
