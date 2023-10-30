@@ -3,7 +3,6 @@ com\tn\value\projectService\entity\TabAttribute$TabAttributeBuilder.class
 com\tn\value\projectService\entity\User.class
 com\tn\value\projectService\ProjectServiceApplication.class
 com\tn\value\projectService\service\Implementation\TagServiceImpl.class
-com\tn\value\projectService\securityConfig\SecurityConfig.class
 com\tn\value\projectService\repository\AttributeRepository.class
 com\tn\value\projectService\service\ITabService.class
 com\tn\value\projectService\entity\Model.class
@@ -18,6 +17,9 @@ com\tn\value\projectService\service\IAttributeService.class
 com\tn\value\projectService\entity\TabAttribute.class
 com\tn\value\projectService\repository\UserRepository.class
 com\tn\value\projectService\service\Implementation\UserServiceImpl.class
+com\tn\value\projectService\filters\JwtAuthenticationFilter.class
+com\tn\value\projectService\security\SecurityConfig.class
+com\tn\value\projectService\controller\UserRestController.class
 com\tn\value\projectService\entity\Project$ProjectBuilder.class
 com\tn\value\projectService\service\IUserService.class
 com\tn\value\projectService\controller\TagRestController.class
@@ -36,6 +38,7 @@ com\tn\value\projectService\service\Implementation\ModelServiceImpl.class
 com\tn\value\projectService\repository\ProjectRepository.class
 com\tn\value\projectService\repository\ModelRepository.class
 com\tn\value\projectService\controller\ProjectRestController.class
+com\tn\value\projectService\security\SecurityConfig$1.class
 com\tn\value\projectService\entity\Tab.class
 com\tn\value\projectService\service\Implementation\TabServiceImpl.class
 com\tn\value\projectService\service\IPositionService.class

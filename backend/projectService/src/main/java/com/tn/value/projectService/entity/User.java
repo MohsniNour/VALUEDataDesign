@@ -1,5 +1,6 @@
 package com.tn.value.projectService.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,5 +23,6 @@ public class User implements Serializable {
     public Long idUser;
     public String userName;
     public String email;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public String password;
 }
