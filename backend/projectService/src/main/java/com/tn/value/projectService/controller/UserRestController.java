@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("")
 public class UserRestController {
     @Autowired
     private IUserService userService;

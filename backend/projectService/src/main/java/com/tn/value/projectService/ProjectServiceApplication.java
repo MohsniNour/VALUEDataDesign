@@ -26,7 +26,7 @@ public class ProjectServiceApplication {
 	@Bean
 	CommandLineRunner start(IUserService userService){
 		return args -> {
-			userService.addUser(new User(null,"test1","test@test.com","test"));
+			//userService.addUser(new User(null,"test1","test@test.com","test"));
 		};
 	}
 

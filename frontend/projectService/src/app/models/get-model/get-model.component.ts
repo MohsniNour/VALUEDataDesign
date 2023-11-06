@@ -9,7 +9,6 @@ import { TabService } from 'src/app/service/tab/tab.service';
 import { UpdateModelDialogComponent } from '../update-model-dialog/update-model-dialog.component';
 import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
 import { AddJoinComponent } from 'src/app/joins/add-join/add-join.component';
-import {jsPlumb} from 'jsplumb';
 import { AddTabDialogComponent } from 'src/app/tabs/add-tab-dialog/add-tab-dialog.component';
 import { Attribute } from 'src/app/model/Attribute/attribute';
 import { AttributeService } from 'src/app/service/attribute/attribute.service';

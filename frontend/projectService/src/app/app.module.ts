@@ -1,4 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import {HTTP_INTERCEPTORS} from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,6 +50,11 @@ import { AddTagComponent } from './tags/add-tag/add-tag.component';
 import { DeleteTagComponent } from './tags/delete-tag/delete-tag.component';
 import { UpdateTagComponent } from './tags/update-tag/update-tag.component';
 import { DeleteTabComponent } from './tabs/delete-tab/delete-tab.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
+import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
+
 
 
 
@@ -79,6 +85,9 @@ import { DeleteTabComponent } from './tabs/delete-tab/delete-tab.component';
     DeleteTagComponent,
     UpdateTagComponent,
     DeleteTabComponent,
+    RegisterComponent,
+    LoginComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,7 +117,10 @@ import { DeleteTabComponent } from './tabs/delete-tab/delete-tab.component';
     Ng2SearchPipeModule,
     //jsPlumb
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,
+  {
+    provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor,multi:true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

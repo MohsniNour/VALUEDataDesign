@@ -26,7 +26,7 @@
         </mat-form-field>
         <mat-form-field class="example-full-width">
             <mat-label>Tag</mat-label>
-            <mat-select id="tag" [(ngModel)]="attribute.tags"  name="tag" multiple>
+            <mat-select id="tag" [(ngModel)]="selectedTagIds"  name="tag" multiple>
                 <mat-option *ngFor="let tag of tagList" [value]="tag.idTag">
                     {{tag.name}} : {{tag.value}}</mat-option>
             </mat-select>

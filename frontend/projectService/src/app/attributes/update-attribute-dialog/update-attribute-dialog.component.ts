@@ -15,6 +15,7 @@ export class UpdateAttributeDialogComponent implements OnInit {
 
   attribute : Attribute = new Attribute();
   tagList!:Tag[];
+  selectedTagIds: number[]=[];
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,private attributeService : AttributeService,private tagService: TagService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -28,12 +29,20 @@ export class UpdateAttributeDialogComponent implements OnInit {
       console.log(this.tagList)
     });
   }
-  
   updateAttribute(){
+    const selectedTags =  this.tagList.filter(tag=>this.selectedTagIds.includes(tag.idTag))
+    console.log("tags selected", selectedTags)
+    this.attribute.tags = selectedTags;
     this.attributeService.updateAttribute(this.attribute).subscribe(data => {
       console.log(data);
     })
   }
+  
+  // updateAttribute(){
+  //   this.attributeService.updateAttribute(this.attribute).subscribe(data => {
+  //     console.log(data);
+  //   })
+  // }
   onSubmit(){
     console.log(this.attribute);
     this.updateAttribute();
