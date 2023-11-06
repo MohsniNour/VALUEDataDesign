@@ -1,7 +1,7 @@
 import { Component, Inject,OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { AttributeService } from 'src/app/service/attribute/attribute.service';
+import { AttributeService } from 'src/app/service/Attribute/attribute.service';
 
 @Component({
   selector: 'app-delete-attribute',

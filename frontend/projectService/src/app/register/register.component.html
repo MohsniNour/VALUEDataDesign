@@ -1,4 +1,4 @@
-<div class="container mt-4" >
+<!-- <div class="container mt-4" >
     <div class="card">
         <h1>Register</h1>
 <form>
@@ -23,4 +23,38 @@
   </form>
 </div>
 
+</div> -->
+
+<div class="body">
+  <div class="page__box-logo">
+    <h1 class="logo-title">Data Design</h1>
+    <img src="../../assets/VALUELOGO.png" alt="Company Logo" class="logo-img">
+  </div>
+    <div class="page__box-button">
+      <mat-dialog-actions>
+        <button mat-raised-button class="signup-button" [routerLink]="['/Register']"> Sign Up </button>
+        <button mat-raised-button class="signin-button" [routerLink]="['/Login']"> Sign In </button>
+      </mat-dialog-actions>
+    </div>
+  <div class="section">
+    <div class="signin"> 
+      <div class="content"> 
+        <h2>Register</h2> 
+        <form (ngSubmit)="save()" #myForm="ngForm" class="form" [formGroup]="formLogin"> 
+          <div class="inputBox"> 
+            <input type="text" [(ngModel)]="user.userName" [ngModelOptions]="{standalone: true}"  class="form-control" id="name" class="form-control" placeholder="Enter Name" required>
+          </div> 
+          <div class="inputBox"> 
+            <input type="email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}"  class="form-control" id="email" class="form-control" placeholder="Enter email" required>
+          </div>
+          <div class="inputBox"> 
+            <input type="password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" class="form-control" id="password" class="form-control" placeholder="Enter Password">
+          </div> 
+          <!-- <div class="links"> <a href="#">Forgot Password ?</a> <a href="#">Forgot Password ?</a> </div>  -->
+          <div class="inputBox"> <input type="submit" value="Register" [disabled]="!myForm.form.valid"> </div> 
+          <div class="register"> Have an account? <a href="/Login">Sign In</a> </div> 
+        </form>
+      </div> 
+    </div> 
+  </div>
 </div>

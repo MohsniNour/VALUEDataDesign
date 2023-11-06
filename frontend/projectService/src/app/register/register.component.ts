@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user/user';
 import { UserService } from '../service/user/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class RegisterComponent implements OnInit {
 
   user : User = new User();
+  formLogin!: FormGroup;
 
   constructor(private userService : UserService, private toastr: ToastrService) { }
 

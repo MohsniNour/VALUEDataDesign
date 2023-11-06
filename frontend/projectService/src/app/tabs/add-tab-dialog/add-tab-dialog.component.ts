@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Attribute } from 'src/app/model/Attribute/attribute';
 import { Tab } from 'src/app/model/tab/tab';
-import { AttributeService } from 'src/app/service/attribute/attribute.service';
+import { AttributeService } from 'src/app/service/Attribute/attribute.service';
 import { TabService } from 'src/app/service/tab/tab.service';
 
 @Component({
@@ -95,7 +95,7 @@ export class AddTabDialogComponent implements OnInit {
   showNotification() {
     this.toastr.success('new table added successfully');
     setTimeout(() => {
-      this.router.navigateByUrl('/Projects/'+this.idProject+'/model/'+this.idModel);
+      this.router.navigateByUrl('/User/Projects/'+this.idProject+'/model/'+this.idModel);
     }, 1000);
   }
 

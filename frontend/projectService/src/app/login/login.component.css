@@ -181,3 +181,6 @@
     height: calc(20vw - 2px);
   }
 }
+.register a{
+  text-decoration:line-through;
+}

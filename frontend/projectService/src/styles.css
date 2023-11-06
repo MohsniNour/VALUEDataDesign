@@ -36,7 +36,7 @@ div > div.page__box_body > form > div:nth-child(1) > mat-form-field-should-float
 }
 a {
     color: inherit;
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 

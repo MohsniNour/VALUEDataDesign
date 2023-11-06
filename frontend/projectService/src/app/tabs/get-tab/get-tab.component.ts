@@ -6,7 +6,7 @@ import { DeleteAttributeComponent } from 'src/app/attributes/delete-attribute/de
 import { UpdateAttributeDialogComponent } from 'src/app/attributes/update-attribute-dialog/update-attribute-dialog.component';
 import { Attribute } from 'src/app/model/Attribute/attribute';
 import { Tab } from 'src/app/model/tab/tab';
-import { AttributeService } from 'src/app/service/attribute/attribute.service';
+import { AttributeService } from 'src/app/service/Attribute/attribute.service';
 import { TabService } from 'src/app/service/tab/tab.service';
 import { UpdateTabDialogComponent } from '../update-tab-dialog/update-tab-dialog.component';
 import { DeleteTabComponent } from '../delete-tab/delete-tab.component';

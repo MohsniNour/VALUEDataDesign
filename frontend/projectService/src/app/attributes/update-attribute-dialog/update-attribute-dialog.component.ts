@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Attribute } from 'src/app/model/Attribute/attribute';
 import { Tag } from 'src/app/model/Tag/tag';
-import { AttributeService } from 'src/app/service/attribute/attribute.service';
+import { AttributeService } from 'src/app/service/Attribute/attribute.service';
 import { TagService } from 'src/app/service/tag/tag.service';
 
 @Component({

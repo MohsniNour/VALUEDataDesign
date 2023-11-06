@@ -11,7 +11,7 @@ import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
 import { AddJoinComponent } from 'src/app/joins/add-join/add-join.component';
 import { AddTabDialogComponent } from 'src/app/tabs/add-tab-dialog/add-tab-dialog.component';
 import { Attribute } from 'src/app/model/Attribute/attribute';
-import { AttributeService } from 'src/app/service/attribute/attribute.service';
+import { AttributeService } from 'src/app/service/Attribute/attribute.service';
 import { DeleteModelDialogComponent } from '../delete-model-dialog/delete-model-dialog.component';
 
 

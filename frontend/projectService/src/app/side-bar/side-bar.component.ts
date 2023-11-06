@@ -63,7 +63,7 @@ export class SideBarComponent implements OnInit {
     console.log(this.projects)
     // console.log("list model shown *******")
     // console.log(this.models);
-    this.router.navigateByUrl('/Projects')
+    this.router.navigateByUrl('/User/Projects')
   }
 
   showModel(){

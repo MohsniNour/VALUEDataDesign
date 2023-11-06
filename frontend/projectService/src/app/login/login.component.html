@@ -1,27 +1,3 @@
-<!-- <div class="container mt-4" >
-    <div class="card">
-        <h1>Login</h1>
-<form>
-
-    <div class="form-group">
-        <label>Email</label>
-        <input type="email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" class="form-control" id="email"  placeholder="Enter Email">
-      </div>
-
-      <div class="form-group">
-        <label>Paaword</label>
-        <input type="password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" class="form-control" id="password" class="form-control" placeholder="Enter Password">
-      </div>
-
-     <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
-
-
-  </form>
-</div>
-
-</div> -->
-
-
 <div class="body">
   <div class="page__box-logo">
     <h1 class="logo-title">Data Design</h1>
@@ -33,7 +9,6 @@
         <button mat-raised-button class="signin-button" [routerLink]="['/Login']"> Sign In </button>
       </mat-dialog-actions>
     </div>
-<!-- </div> -->
   <div class="section">
     <div class="signin"> 
       <div class="content"> 
@@ -45,9 +20,9 @@
           <div class="inputBox"> 
             <input type="password"  class="form-control" id="password" class="form-control" placeholder="Password" name="password" required formControlName="password">
           </div> 
-          <div class="links"> <a href="#">Forgot Password ?</a> <a href="#">Forgot Password ?</a> </div> 
+          <!-- <div class="links"> <a href="#">Forgot Password ?</a> <a href="#">Forgot Password ?</a> </div>  -->
           <div class="inputBox"> <input type="submit" value="Login" [disabled]="!myForm.form.valid"> </div> 
-          <div class=""> <a href="#">Forgot Password</a> <a href="#">Signup</a> </div> 
+          <div class="register"> Don't have an account? <a href="/Register">Sign Up Now</a> </div> 
         </form>
       </div> 
     </div> 
