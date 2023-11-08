@@ -1,0 +1,13 @@
+.table {
+    width: 150px;
+    height: 100px;
+    background-color: #f0f0f0;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    cursor: grab;
+  }
+  
+  svg {
+    position: absolute;
+  }

@@ -1,0 +1,12 @@
+<div>
+<p>joinstest works!</p>
+<!-- <div class="table" #table1 (dragstart)="onDragStart($event, table1)">
+    Table 1
+  </div>
+  <div class="table" #table2 (dragover)="onDragOver($event)" (drop)="onDrop($event, table2)">
+    Table 2
+  </div> -->
+  <svg width="400" height="400" (mousedown)="onSvgClick($event)">
+    <path *ngFor="let arrow of arrows" [attr.d]="arrow.path"></path>
+  </svg>
+</div>

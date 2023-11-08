@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from './service/user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,11 @@ export class AppComponent implements OnInit{
   title = 'projectService';
   sideBarStatus = true;
 
-  ngOnInit(){}
+  constructor(private userService : UserService){}
+
+  ngOnInit(){
+    this.userService.loadJwtTokenFromLocalStorage();
+  }
 
   sideBarToggler(){
     this.sideBarStatus = !this.sideBarStatus;

@@ -6,7 +6,7 @@
      <div class="side-nav-content">
         <ul class="nav-list" [ngClass]="{'nav-list-open': sideBarStatus}">
             <li class="nav-list-item">
-                    <a routerLink="/Home" routerLinkActive="list-item-active" class="nav-link">
+                    <a routerLink="/User/Home" routerLinkActive="list-item-active" class="nav-link">
                         <i class="fa-solid fa-house" style="color: #181818; margin-left: 35px;"></i>
                         Home
                     </a>
@@ -14,7 +14,7 @@
                         <ng-container [ngTemplateOutlet]="menu.children ? childMenu : parentMenu"[ngTemplateOutletContext]="{menu:menu}">
                         </ng-container>
                     </ng-container>
-                     <a routerLink="/Tags" routerLinkActive="list-item-active" class="nav-link">
+                     <a routerLink="/User/Tags" routerLinkActive="list-item-active" class="nav-link">
                         <i class="fa-solid fa-tag" style="color: #181818; margin-left: 35px;"></i>
                         Tags
                     </a>

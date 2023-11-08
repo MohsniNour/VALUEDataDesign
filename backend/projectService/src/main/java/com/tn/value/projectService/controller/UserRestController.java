@@ -80,13 +80,5 @@ public class UserRestController {
     public User profile(Principal principal){
         return userService.loadUserByUserName(principal.getName());
     }
-/*
-    @PostMapping(path = "/login")
-    public ResponseEntity<?> loginUser(@RequestBody LoginDTO loginDTO)
-    {
-        LoginResponse loginResponse = userService.loginUser(loginDTO);
-        return ResponseEntity.ok(loginResponse);
-    }
 
- */
 }

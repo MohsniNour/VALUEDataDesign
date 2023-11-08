@@ -23,6 +23,7 @@ const routes: Routes = [
     {path: 'Projects/:idProject/model/:idModel/tab/add',component:AddTabDialogComponent},
     {path: 'Projects/:idProject/model/:idModel/tab/:id',component:GetTabComponent},
     {path: 'Tags',component:GetTagsComponent},
+    //{path: 'Joins',component:JoinstestComponent},
 ]}
   
 ];

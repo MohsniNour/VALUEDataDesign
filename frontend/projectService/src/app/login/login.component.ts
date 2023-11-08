@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
         next : data =>{
           console.log(data)
           this.userService.loadData(data);
-          this.showNotification()
+          this.router.navigateByUrl('/User/Home');
+          // this.showNotification()
         },
         error : err =>{
           console.log(err);
@@ -73,12 +74,12 @@ export class LoginComponent implements OnInit {
   //   // }
   // }
 
-  showNotification() {
-    this.toastr.success('Login successfully');
-    setTimeout(() => {
-      this.router.navigateByUrl('/User/Home') // Reload the page after a delay
-    }, 1000); // Delay in milliseconds (e.g., 2000 milliseconds = 2 seconds)
-  }
+  // showNotification() {
+  //   this.toastr.success('Login successfully');
+  //   setTimeout(() => {
+  //     this.router.navigateByUrl('/User/Home') // Reload the page after a delay
+  //   }, 1000); // Delay in milliseconds (e.g., 2000 milliseconds = 2 seconds)
+  // }
 
   showNotificationError() {
     this.toastr.error('User not exist you have to register before');

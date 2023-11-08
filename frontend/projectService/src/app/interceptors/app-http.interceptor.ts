@@ -18,7 +18,7 @@ export class AppHttpInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log(request.url )
-    if(!request.url.includes("/login"))
+    if(!request.url.includes("/login")&&!request.url.includes("/register"))
     {
       let newReq=request.clone({
         headers : request.headers.set('Authorization','Bearer '+this.userService.accessToken)
@@ -26,9 +26,9 @@ export class AppHttpInterceptor implements HttpInterceptor {
       return next.handle(newReq).pipe(
           catchError((err) => {
             if(err.status==403){
-              this.showNotificationError()
+              this.userService.logout()
             } else if(err.status==401){
-              this.router.navigateByUrl("/Login")
+              this.userService.logout()
             }
             return throwError(err);
           }),
@@ -43,11 +43,12 @@ export class AppHttpInterceptor implements HttpInterceptor {
   private handleError(err:HttpErrorResponse){
   }
 
-   showNotificationError() {
-    this.toastr.error('Login again');
-    setTimeout(() => {
-      this.router.navigateByUrl('/Login') // Reload the page after a delay
-    }, 1000); // Delay in milliseconds (e.g., 2000 milliseconds = 2 seconds)
-  }
+  //  showNotificationError() {
+  //   this.userService.logout()
+  //   this.toastr.error('Login again');
+  //   setTimeout(() => {
+  //     this.router.navigateByUrl('/Login') // Reload the page after a delay
+  //   }, 1000); // Delay in milliseconds (e.g., 2000 milliseconds = 2 seconds)
+  // }
 
 }
