@@ -46,7 +46,7 @@ export class UserService {
   }
 
   loadProfile() {
-    return this.httpClient.get(`${this.baseURL}/profile`);
+    return this.httpClient.get(`${this.baseURL}/users/profile`);
   }
 
   loadData(data:any) {
@@ -60,7 +60,16 @@ export class UserService {
     if(window.localStorage.getItem("jwt-token")){
       this.isAuthenticated=true;
     }
-
+    this.loadProfile().subscribe(data =>{
+      this.connectedUser = data;
+      console.log("connected User",this.connectedUser)
+    });
+    
+    // this.loadProfile().subscribe(data =>{
+    //   this.connectedUser = data;
+    //   console.log(data)
+    //   console.log(this.connectedUser)
+    // });
   }
 
   logout() {
@@ -68,7 +77,9 @@ export class UserService {
     this.profile=undefined;
     this.accessToken=undefined;
     this.userName = undefined;
+    this.connectedUser = undefined;
     window.localStorage.removeItem("jwt-token");
+    window.localStorage.removeItem("connectedUser");
     this.router.navigateByUrl('/Login');
   }
 

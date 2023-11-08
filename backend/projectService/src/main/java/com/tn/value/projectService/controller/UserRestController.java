@@ -76,7 +76,7 @@ public class UserRestController {
         }
     }
 
-    @GetMapping(path = "/profile")
+    @GetMapping(path = "/users/profile")
     public User profile(Principal principal){
         return userService.loadUserByUserName(principal.getName());
     }

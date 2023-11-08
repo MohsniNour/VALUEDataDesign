@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/model/project/project';
 import { ProjectService } from 'src/app/service/project/project.service';
 import {ToastrService} from "ngx-toastr";
+import { UserService } from 'src/app/service/user/user.service';
 
 @Component({
   selector: 'app-add-project-dialog',
@@ -12,7 +13,7 @@ export class AddProjectDialogComponent implements OnInit {
 
   project : Project = new Project();
   projectList!: Project[];
-  constructor(private projectService : ProjectService, private toastr: ToastrService) { }
+  constructor(private projectService : ProjectService, private toastr: ToastrService,private userService : UserService) { }
 
   ngOnInit(): void {
     this.projectService.getProjectList().subscribe(data =>{
@@ -22,6 +23,7 @@ export class AddProjectDialogComponent implements OnInit {
   }
 
   saveProject(){
+    this.project.user=this.userService.connectedUser;
         this.projectService.addProject(this.project).subscribe(data => {
           console.log(data);
         })

@@ -32,7 +32,6 @@ public class Project implements Serializable{
 	@Column(columnDefinition = "TIMESTAMP")
 	public LocalDateTime lastUpdatedDate;
 
-	@JsonIgnore
 	@ManyToOne
 	private User user;
 

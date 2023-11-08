@@ -9,6 +9,7 @@ import { UserService } from './service/user/user.service';
 export class AppComponent implements OnInit{
   title = 'projectService';
   sideBarStatus = true;
+  connectedUser: any;
 
   constructor(private userService : UserService){}
 
