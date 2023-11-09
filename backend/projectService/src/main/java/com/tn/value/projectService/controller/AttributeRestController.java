@@ -95,18 +95,4 @@ public class AttributeRestController {
         excel.export(response);
 
     }
-
-/*
-    // http://localhost:8089/VALUE/tabs/getById/1
-    @GetMapping("/export/pdf/{id}")
-    public ResponseEntity<InputStreamResource> exportToPDF(@PathVariable("id") Long id) throws IOException {
-        List<TabAttribute> attributeList = attributeService.getAllByIdTab(id);
-        ByteArrayInputStream bais = exportAttributeService.attributePDFReport(attributeList);
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition","inline;filename.pdf");
-        return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(bais));
-
-    }
-
- */
 }

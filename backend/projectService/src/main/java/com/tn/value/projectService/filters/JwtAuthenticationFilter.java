@@ -58,6 +58,5 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         idToken.put("refresh-token",jwtAccessRefreshToken);
         response.setContentType("application/json");
         new ObjectMapper().writeValue(response.getOutputStream(),idToken);
-        //response.setHeader("Authorization",jwtAccessToken);
     }
 }

@@ -11,6 +11,4 @@ import java.util.List;
 @Repository
 public interface TagRepository extends JpaRepository<Tag, Long> {
 
-    //@Query("SELECT tag FROM Tag tag WHERE tag.attribute.idAttribute = :idAttribute")
-    //List<Tag> getAllByIdAttribute(Long idAttribute);
 }

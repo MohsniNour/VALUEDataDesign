@@ -37,8 +37,6 @@ public class TagRestController {
     @PostMapping("/add")
     @ResponseBody
     public Tag add(@RequestBody Tag t) {
-        //TabAttribute attribute = attributeService.getById(id);
-        //t.setAttribute(attribute);
         return tagService.add(t);
     }
 
@@ -55,7 +53,6 @@ public class TagRestController {
     @ResponseBody
     public Tag update(@RequestBody Tag tag,@PathVariable("id") Long id) {
         Tag t = tagService.getById(id);
-        //tag.setAttribute(t.getAttribute());
         tag.setIdTag(id);
         return tagService.update(tag);
     }

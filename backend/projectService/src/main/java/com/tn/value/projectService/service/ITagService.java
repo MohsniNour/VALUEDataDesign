@@ -7,8 +7,6 @@ import java.util.List;
 public interface ITagService {
     List<Tag> getAll();
 
-    //List<Tag> getAllByIdAttribute(Long idAttribute);
-
     Tag add(Tag t);
 
     void delete(Long id);

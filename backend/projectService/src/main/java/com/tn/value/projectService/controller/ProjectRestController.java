@@ -38,8 +38,6 @@ public class ProjectRestController {
     @PostMapping("/add")
     @ResponseBody
     public Project add(@RequestBody Project p) {
-        //User u = userService.profile();
-        //p.setUser(u);
         p.setLastUpdatedDate(LocalDateTime.now());
         return projectService.add(p);
     }
