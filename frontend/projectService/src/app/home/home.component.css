@@ -1,13 +1,9 @@
-.container-fluid
-{
-    /* background-image: url('../../assets/HomePage.JPG'); */
-}
+
 .page__box{
     margin : 80px 20px auto 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: solid red; */
 }
 .page__box-title{
     flex: 1;
@@ -48,7 +44,6 @@
     margin : 15px 20px auto 20px;
     width: calc(100% - 40px);
     height: 100%;
-    /* min-height: calc(100vh - 160px); */
 }
 .page__content-data{
     display: grid;

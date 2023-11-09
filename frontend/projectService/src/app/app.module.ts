@@ -117,7 +117,6 @@ import { GetJoinsComponent } from './joins/get-joins/get-joins.component';
     MatSelectModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    //jsPlumb
   ],
   providers: [DatePipe,
   {

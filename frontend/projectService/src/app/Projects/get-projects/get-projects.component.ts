@@ -55,7 +55,4 @@ export class GetProjectsComponent implements OnInit {
       panelClass: ['animate__animated'],
     });
   }
-
- 
-  
 }

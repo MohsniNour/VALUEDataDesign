@@ -17,9 +17,6 @@
 .nav-list-item {
     height: 50px;
 }
-/* .nav-list-item a {
-    margin-left: 15px;
-} */
 
 .nav-list-item:hover {
     background-color:rgba(255, 136, 37, .5);

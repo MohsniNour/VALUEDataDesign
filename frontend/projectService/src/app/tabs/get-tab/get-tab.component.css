@@ -3,12 +3,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: solid red; */
 }
 .page__box-title{
     display: flex; 
     flex-wrap: nowrap;
-    /* text-transform: uppercase; */
     font-weight:550;
     color: #181818;
 }

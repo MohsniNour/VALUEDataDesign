@@ -15,13 +15,11 @@ export class GetTagsComponent implements OnInit {
 
   search !:any;
   tags !: Tag [];
-  // values !: Value[];
 
   constructor(private tagService : TagService, private matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getTags();
-    // this.getValues()
   }
 
   private getTags(){
@@ -35,13 +33,6 @@ export class GetTagsComponent implements OnInit {
     });
   }
 
-  // private getValues(){
-  //   this.valueService.getValueList().subscribe(data =>{
-  //     this.values = data;
-  //     console.log(this.values)
-  //   });
-  // }
-
   openAddTagDialog(){
     this.matDialog.open(AddTagComponent,{
       width:'620px', 
@@ -49,17 +40,6 @@ export class GetTagsComponent implements OnInit {
       panelClass: ['animate__animated'],
     });
   }
-
-  // openAddValueDialog(tag:any){
-  //   this.matDialog.open(AddValueComponent,{
-  //     width:'620px', 
-  //     height:'250px',
-  //     panelClass: ['animate__animated'],
-  //     data:{
-  //       tag:tag,
-  //     }
-  //   });
-  // }
 
   openUpdateTagDialog(tag:any){
     this.matDialog.open(UpdateTagComponent,{
@@ -72,17 +52,6 @@ export class GetTagsComponent implements OnInit {
     })
   }
 
-  // openUpdateValueDialog(value:any){
-  //   this.matDialog.open(UpdateValueComponent,{
-  //     width:'620px', 
-  //     height:'250px',
-  //     panelClass: ['animate__animated'],
-  //     data:{
-  //       value:value,
-  //     }
-  //   })
-  // }
-
   openDeleteTagDialog(tag:any){
     this.matDialog.open(DeleteTagComponent,{
       width:'620px', 
@@ -93,16 +62,5 @@ export class GetTagsComponent implements OnInit {
       }
     })
   }
-
-  // openDeleteValueDialog(value:any){
-  //   this.matDialog.open(DeleteValueComponent,{
-  //     width:'620px', 
-  //     height:'140px',
-  //     panelClass: ['animate__animated'],
-  //     data:{
-  //       value:value,
-  //     }
-  //   })
-  // }
 
 }

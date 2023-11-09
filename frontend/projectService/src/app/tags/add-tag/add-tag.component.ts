@@ -29,13 +29,6 @@ export class AddTagComponent implements OnInit {
       }
 
   onSubmit() {
-    // const isTagNameExist = this.tagList.some(obj => obj.name === this.tag.name);
-    // if (isTagNameExist) {
-    //   this.showNotificationError();
-    // } else {
-    //   this.saveTag();
-    //   this.showNotification();
-    // }
     this.saveTag();
     this.showNotification();
   }
@@ -43,8 +36,8 @@ export class AddTagComponent implements OnInit {
   showNotification() {
     this.toastr.success('New tag added successfully');
     setTimeout(() => {
-      window.location.reload(); // Reload the page after a delay
-    }, 1000); // Delay in milliseconds (e.g., 2000 milliseconds = 2 seconds)
+      window.location.reload(); 
+    }, 1000);
   }
 
   showNotificationError() {

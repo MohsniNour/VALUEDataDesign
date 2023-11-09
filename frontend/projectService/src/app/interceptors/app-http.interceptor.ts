@@ -37,18 +37,6 @@ export class AppHttpInterceptor implements HttpInterceptor {
           })
           );
     }else return next.handle(request)
-    
   }
-
-  private handleError(err:HttpErrorResponse){
-  }
-
-  //  showNotificationError() {
-  //   this.userService.logout()
-  //   this.toastr.error('Login again');
-  //   setTimeout(() => {
-  //     this.router.navigateByUrl('/Login') // Reload the page after a delay
-  //   }, 1000); // Delay in milliseconds (e.g., 2000 milliseconds = 2 seconds)
-  // }
 
 }

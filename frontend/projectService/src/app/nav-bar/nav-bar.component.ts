@@ -25,13 +25,4 @@ export class NavBarComponent implements OnInit {
   handleLogout(){
     this.userService.logout()
   }
-
-  // showNotification() {
-  //   this.toastr.success('Log Out successfully');
-  //   setTimeout(() => {
-  //     this.router.navigateByUrl('/Login') // Reload the page after a delay
-  //   }, 1000); // Delay in milliseconds (e.g., 2000 milliseconds = 2 seconds)
-  // }
-  
-
 }

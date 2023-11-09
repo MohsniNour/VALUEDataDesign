@@ -64,12 +64,6 @@ export class UserService {
       this.connectedUser = data;
       console.log("connected User",this.connectedUser)
     });
-    
-    // this.loadProfile().subscribe(data =>{
-    //   this.connectedUser = data;
-    //   console.log(data)
-    //   console.log(this.connectedUser)
-    // });
   }
 
   logout() {
@@ -88,7 +82,6 @@ export class UserService {
     let token = window.localStorage.getItem("jwt-token")
     if(token){
       this.loadData({"access-token" :token})
-      // this.router.navigateByUrl("/User/Home");
     }
   }
 

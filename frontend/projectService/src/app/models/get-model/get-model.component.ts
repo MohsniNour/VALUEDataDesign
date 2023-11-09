@@ -55,13 +55,7 @@ export class GetModelComponent implements OnInit{
       console.log(this.tabs)
     });
   }
-  //  getAttributesByIdTab(id:number){
-  //    this.attributeService.getAttributeListByIdTab(id).subscribe(data =>{
-  //     this.attributes = data;
-  //     console.log(this.attributes)
-  //   });
-  //   return this.attributes.slice(0, 1)
-  // }
+ 
   getAttributeList(){
     this.attributeService.getAttributeList().subscribe(data =>{
      this.attributes = data;

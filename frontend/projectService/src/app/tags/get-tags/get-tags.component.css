@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: solid red; */
 }
 .page__box-title{
     flex: 1;

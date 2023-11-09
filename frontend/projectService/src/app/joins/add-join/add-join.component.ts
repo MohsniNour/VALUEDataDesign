@@ -15,7 +15,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddJoinComponent implements OnInit {
 
-  // disableSelect = new FormControl(false);
   id !: number;
   tabs!: Tab[];
   join :Join = new Join();
@@ -34,7 +33,6 @@ export class AddJoinComponent implements OnInit {
     this.joinService.addJoin(this.join).subscribe(data => {
       console.log(data);
     })
-    // const tab1= this.join.bindingTable;
     this.join2.bindingTable=this.join.boundTable;
     this.join2.boundTable=this.join.bindingTable;
     this.join2.value=this.value;
@@ -45,15 +43,14 @@ export class AddJoinComponent implements OnInit {
   }
 
   onSubmit(){
-    // console.log(this.project);
     this.saveJoin();
     this.showNotification()
   }
   showNotification() {
     this.toastr.success('new relations added successfully');
     setTimeout(() => {
-      window.location.reload(); // Reload the page after a delay
-    }, 1000); // Delay in milliseconds (e.g., 2000 milliseconds = 2 seconds)
+      window.location.reload(); 
+    }, 1000);
   }
 
 }

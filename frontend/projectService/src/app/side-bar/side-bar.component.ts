@@ -25,7 +25,6 @@ export class SideBarComponent implements OnInit {
   ngOnInit(): void {
     this.getProjects();
     this.getModelList();
-    // this.getModels(1);
     console.log(this.models); 
   }
 
@@ -40,34 +39,20 @@ export class SideBarComponent implements OnInit {
     console.log("id " ,id)
   }
 
-  // getModels(id:number){
-  //   // this.modelList = [{text:"models",children:[]}];
-  //   this.modelService.getModelListByIdProject(id).subscribe(data =>{
-  //     this.models = data;
-  //     //console.log("list model shown *******")
-  //     //console.log(this.models);
-  //   });
-  //   // return this.models;
-  // }
   private getModelList(){
     this.modelService.getModelList().subscribe(data =>{
       this.models = data;
-      //console.log("list model shown *******")
-      //console.log(this.models);
     });
-    // return this.models;
   }
 
   showProject(){
-    console.log("list project shown *******")
-    console.log(this.projects)
-    // console.log("list model shown *******")
-    // console.log(this.models);
-    this.router.navigateByUrl('/User/Projects')
+    console.log("list project shown *******");
+    console.log(this.projects);
+    this.router.navigateByUrl('/User/Projects');
   }
 
   showModel(){
-    console.log("list model shown *******")
+    console.log("list model shown *******");
     console.log(this.models);
   }
   

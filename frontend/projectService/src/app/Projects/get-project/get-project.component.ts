@@ -86,6 +86,4 @@ export class GetProjectComponent implements OnInit {
     })
   }
 
-  
-
 }

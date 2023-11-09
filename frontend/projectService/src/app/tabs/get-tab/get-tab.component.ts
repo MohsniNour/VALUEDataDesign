@@ -14,18 +14,7 @@ import jsPDF from 'jspdf';
 import { TagService } from 'src/app/service/tag/tag.service';
 import { Tag } from 'src/app/model/Tag/tag';
 import { GetJoinsComponent } from 'src/app/joins/get-joins/get-joins.component';
-// import jspdf from "jspdf";
-// import "jspdf-autotable"
-// import JsPDF, { jsPDF } from 'jspdf';
-// import jspdf, { jsPDF } from "jspdf";
-// // var jsPDF = require('jspdf');
-// require('jspdf-autotable');
-// import { UserOptions } from 'jspdf-autotable';
 
-
-// interface jsPDFWithPlugin extends jspdf{
-//   autotable: (options : UserOptions )=> jspdf;
-// }
 @Component({
   selector: 'app-get-tab',
   templateUrl: './get-tab.component.html',
