@@ -38,11 +38,6 @@ export class UpdateAttributeDialogComponent implements OnInit {
     })
   }
   
-  // updateAttribute(){
-  //   this.attributeService.updateAttribute(this.attribute).subscribe(data => {
-  //     console.log(data);
-  //   })
-  // }
   onSubmit(){
     console.log(this.attribute);
     this.updateAttribute();
@@ -52,8 +47,8 @@ export class UpdateAttributeDialogComponent implements OnInit {
   showNotification() {
     this.toastr.success('Attribute updated successfully');
     setTimeout(() => {
-      window.location.reload(); // Reload the page after a delay
-    }, 1000); // Delay in milliseconds (e.g., 2000 milliseconds = 2 seconds)
+      window.location.reload(); 
+    }, 1000); 
   }
 
 }

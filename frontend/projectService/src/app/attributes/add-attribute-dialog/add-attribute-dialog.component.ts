@@ -63,8 +63,8 @@ export class AddAttributeDialogComponent implements OnInit {
   showNotification() {
     this.toastr.success('new attribute added successfully');
     setTimeout(() => {
-      window.location.reload(); // Reload the page after a delay
-    }, 1000); // Delay in milliseconds (e.g., 2000 milliseconds = 2 seconds)
+      window.location.reload(); 
+    }, 1000); 
   }
 
 

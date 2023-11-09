@@ -40,6 +40,12 @@
     background-color: rgba(255, 136, 37, .5);
     border-color: rgba(255, 136, 37);
 }
+.show-join-button{
+    margin-left: 20px;
+    border-radius: 5px;
+    background-color: rgba(245,247,248, .5);
+    border-color: #ccc;
+}
 .show-button{
     margin-right: 20px;
     border-radius: 5px;

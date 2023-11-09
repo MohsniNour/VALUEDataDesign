@@ -28,7 +28,7 @@ public class UserRestController {
     private IUserService userService;
 
     // http://localhost:8089/VALUE/users/getAll
-    @GetMapping("/users/")
+    @GetMapping("/users")
     @ResponseBody
     public List<User> getAll() { return userService.getAll(); }
 
@@ -76,7 +76,7 @@ public class UserRestController {
         }
     }
 
-    @GetMapping(path = "/users/profile")
+    @GetMapping(path = "/profile")
     public User profile(Principal principal){
         return userService.loadUserByUserName(principal.getName());
     }

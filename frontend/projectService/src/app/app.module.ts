@@ -54,6 +54,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
+import { GetJoinsComponent } from './joins/get-joins/get-joins.component';
 
 
 
@@ -88,6 +89,7 @@ import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
     RegisterComponent,
     LoginComponent,
     UserComponent,
+    GetJoinsComponent,
   ],
   imports: [
     BrowserModule,

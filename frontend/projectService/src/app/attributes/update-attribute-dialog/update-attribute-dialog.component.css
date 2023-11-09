@@ -34,14 +34,9 @@
 }
 .example-full-width {
     margin: 0px 28px 0px 0px;
-    /* background-color: #f5f7f8; */
     width: 25%;
 }
 h2{
     margin-top: auto;
     color:grey;
 }
-/* .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-    background-color: #FF8825;
-  } */
-  

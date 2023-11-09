@@ -45,8 +45,8 @@ export class UserService {
     return this.httpClient.post(`${this.baseURL}/login`,params,options);
   }
 
-  loadProfile() {
-    return this.httpClient.get(`${this.baseURL}/users/profile`);
+  loadProfile(): Observable<User> {
+    return this.httpClient.get<User>(`${this.baseURL}/profile`);
   }
 
   loadData(data:any) {
@@ -81,6 +81,7 @@ export class UserService {
     window.localStorage.removeItem("jwt-token");
     window.localStorage.removeItem("connectedUser");
     this.router.navigateByUrl('/Login');
+    location.reload();
   }
 
   loadJwtTokenFromLocalStorage(){

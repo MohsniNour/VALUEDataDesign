@@ -13,6 +13,7 @@ import { DeleteTabComponent } from '../delete-tab/delete-tab.component';
 import jsPDF from 'jspdf';
 import { TagService } from 'src/app/service/tag/tag.service';
 import { Tag } from 'src/app/model/Tag/tag';
+import { GetJoinsComponent } from 'src/app/joins/get-joins/get-joins.component';
 // import jspdf from "jspdf";
 // import "jspdf-autotable"
 // import JsPDF, { jsPDF } from 'jspdf';
@@ -82,10 +83,10 @@ export class GetTabComponent implements OnInit {
     let doc = new jsPDF("l","pt");
     doc.html(this.el.nativeElement,{
       callback:(pdf) =>{
-        pdf.save("listAttribute.pdf");
+        pdf.save("listAttribute"+this.tab.name+".pdf");
       }
     })
-    }
+  }
 
   private getAttributesByIdTab(){
     this.id = this.route.snapshot.params['id'];
@@ -125,6 +126,17 @@ export class GetTabComponent implements OnInit {
     this.matDialog.open(UpdateTabDialogComponent,{
       width:'750px', 
       height:'250px',
+      panelClass: ['animate__animated'],
+      data:{
+        tab:this.tab
+      }
+    })
+  }
+
+  openListJoinDialog(){
+    this.matDialog.open(GetJoinsComponent,{
+      width:'850px', 
+      height:'460px',
       panelClass: ['animate__animated'],
       data:{
         tab:this.tab
